@@ -334,3 +334,33 @@ function earnReward() {
   alert("You have earned the Security Star badge!");
   document.getElementById('rewardBadge').style.display = 'block';
 }
+
+// Fungsi Enhanced 2FA (Simulasi TOTP)
+function initiate2FA() {
+  const code = prompt("Enter your 6-digit TOTP code (simulated):");
+  if (code === "654321") {
+    alert("Enhanced 2FA enabled successfully!");
+    document.getElementById('securityStatus').textContent = "Enhanced 2FA is active.";
+  } else {
+    alert("Invalid code. Please try again.");
+  }
+}
+
+// Fungsi simulasi Anti-DDoS Monitoring dengan efek dinamis
+function simulateAntiDDoS() {
+  const random = Math.random();
+  if (random > 0.8) {
+    document.getElementById('securityStatus').textContent = "Warning: High traffic detected. Security protocols activated.";
+  } else {
+    document.getElementById('securityStatus').textContent = "Security Status: All systems normal.";
+  }
+}
+
+// Fungsi untuk mendapatkan reward badge (simulasi)
+function earnReward() {
+  alert("You have earned the Security Star badge!");
+  document.getElementById('rewardBadge').style.display = 'block';
+}
+
+// Perbarui fungsi ChatGPT jika perlu, atau biarkan sesuai tahap sebelumnya
+// (Fungsi sendChatWithChatGPT, sendChat, appendChatMessage, dan startVoiceInput sudah ada di tahap 2)
