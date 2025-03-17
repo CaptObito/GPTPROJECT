@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PROJECTGPT 2.0 - Final Update</title>
+  <title>PROJECTGPT V2.2.00 - Stage 1: UI/UX Futuristik</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet" />
   <!-- Link CSS -->
   <link rel="stylesheet" href="style.css" />
-  <!-- Script dengan defer -->
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -21,8 +20,6 @@
       <a href="#features">Features</a>
       <a href="#chatbot">Chatbot</a>
       <a href="#dashboard">Dashboard</a>
-      <a href="#blockchain">Blockchain</a>
-      <a href="#security">Security</a>
       <a href="#contact">Contact</a>
       <a href="javascript:void(0)" onclick="openLoginModal()">Login</a>
       <button class="dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
@@ -51,23 +48,24 @@
     <div class="features-container">
       <div class="feature-card">
         <h3>Neon UI/UX</h3>
-        <p>Modern interface with glowing effects and smooth animations.</p>
+        <p>Modern interface with vibrant neon colors and dynamic animations.</p>
       </div>
       <div class="feature-card">
-        <h3>Responsive Design</h3>
-        <p>Optimized display on mobile, tablet, and desktop devices.</p>
+        <h3>Responsive Layout</h3>
+        <p>Optimized display on all devices with smooth transitions.</p>
       </div>
       <div class="feature-card">
-        <h3>Dark Mode Toggle</h3>
-        <p>Switch themes instantly for a personalized experience.</p>
+        <h3>Dynamic Dark Mode</h3>
+        <p>Instantly switch themes with enhanced smooth transitions.</p>
       </div>
     </div>
   </section>
 
-  <!-- CHATBOT SECTION -->
+  <!-- SECTION TAMBAHAN (Dashboard & Chatbot) -->
+  <!-- Di tahap ini, kita fokus pada tampilan visual; fungsi chatbot dan dashboard akan diintegrasikan di tahap berikutnya -->
   <section class="chatbot" id="chatbot">
     <h2>AI Chatbot</h2>
-    <p>Ask your questions using text or voice – our AI is powered by advanced models.</p>
+    <p>Chat with our futuristic AI assistant.</p>
     <div class="chat-container">
       <div class="chat-window" id="chatWindow"></div>
       <div class="chat-input-container">
@@ -78,10 +76,9 @@
     </div>
   </section>
 
-  <!-- DASHBOARD SECTION -->
   <section class="dashboard" id="dashboard" style="display:none;">
     <h2>User Dashboard (Beta)</h2>
-    <p>Welcome, <span id="usernameDisplay"></span>! Here’s your live data:</p>
+    <p>Welcome, <span id="usernameDisplay"></span>! See your live data below:</p>
     <div class="dashboard-widgets">
       <div class="widget">
         <h3>Token Balance</h3>
@@ -98,39 +95,10 @@
     </div>
   </section>
 
-  <!-- BLOCKCHAIN SECTION -->
-  <section class="blockchain" id="blockchain">
-    <h2>Blockchain Integration</h2>
-    <p>Connect your wallet and view real-time blockchain data.</p>
-    <div class="blockchain-container">
-      <button class="btn-futuristic" onclick="connectWallet()">Connect Wallet</button>
-      <div id="walletInfo" style="display:none;">
-        <p>Your Wallet: <span id="walletAddress"></span></p>
-        <p>Token Balance: <span id="walletBalance">0</span></p>
-        <p>Token Price: <span id="tokenPrice">$0.00</span></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECURITY & GAMIFICATION SECTION -->
-  <section class="security" id="security">
-    <h2>Advanced Security & Rewards</h2>
-    <p>Enhance your account security and earn rewards for your engagement.</p>
-    <div class="security-container">
-      <button class="btn-futuristic" onclick="initiate2FA()">Enable Enhanced 2FA</button>
-      <button class="btn-futuristic" onclick="simulateAntiDDoS()">Check Security Status</button>
-      <button class="btn-futuristic" onclick="earnReward()">Earn Reward Badge</button>
-    </div>
-    <div id="securityStatus" class="security-status"></div>
-    <div id="rewardBadge" class="reward-badge" style="display:none;">
-      <p>Congratulations! You earned the "Security Star" badge.</p>
-    </div>
-  </section>
-
   <!-- CONTACT SECTION -->
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
-    <p>Have questions or want to collaborate? Reach out!</p>
+    <p>Have questions? Reach out!</p>
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
@@ -145,18 +113,14 @@
     <button class="scroll-top-btn" onclick="scrollToTop()"></button>
   </footer>
 
-  <!-- INFO MODAL -->
+  <!-- MODALS (INFO & LOGIN) -->
   <div class="modal" id="infoModal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <h2>About PROJECTGPT</h2>
-      <p>
-        PROJECTGPT integrates advanced AI, blockchain technology, and top-notch security to empower your digital journey.
-      </p>
+      <p>PROJECTGPT integrates cutting-edge AI, blockchain, and futuristic design to redefine digital experiences.</p>
     </div>
   </div>
-
-  <!-- LOGIN MODAL -->
   <div class="modal" id="loginModal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeLoginModal()">&times;</span>
