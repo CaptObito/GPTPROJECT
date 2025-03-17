@@ -1,13 +1,13 @@
 // Jalankan fungsi saat DOM telah dimuat
 document.addEventListener('DOMContentLoaded', () => {
   startTypewriter();
-  // Cek apakah user sudah login melalui localStorage
+  // Periksa apakah user sudah login melalui localStorage
   const loggedInUser = localStorage.getItem('loggedInUser');
   if (loggedInUser) {
     document.getElementById('usernameDisplay').textContent = loggedInUser;
     document.getElementById('dashboard').style.display = 'block';
   }
-  // Mulai context retention untuk chatbot
+  // Siapkan konteks untuk chatbot (opsional)
   if (!localStorage.getItem('chatContext')) {
     localStorage.setItem('chatContext', JSON.stringify([]));
   }
@@ -86,23 +86,22 @@ document.addEventListener('scroll', () => {
   });
 });
 
-// CHATBOT FUNCTIONS WITH CONTEXT RETENTION
-function sendChat() {
+// CHATBOT FUNCTIONS WITH CHATGPT INTEGRATION
+async function sendChat() {
   const input = document.getElementById('chatInput');
   const message = input.value.trim();
   if (message !== "") {
     appendChatMessage("User", message);
-    // Simpan pesan ke konteks (sederhana)
+    // Simpan pesan ke konteks
     let context = JSON.parse(localStorage.getItem('chatContext'));
-    context.push({ sender: "User", message });
+    context.push({ role: "user", content: message });
     localStorage.setItem('chatContext', JSON.stringify(context));
-    // Simulasi respons chatbot dengan konteks sederhana
-    setTimeout(() => {
-      const response = "Our AI has noted your input. How else can I assist you?";
-      appendChatMessage("Bot", response);
-      context.push({ sender: "Bot", message: response });
-      localStorage.setItem('chatContext', JSON.stringify(context));
-    }, 1000);
+
+    // Kirim pesan ke ChatGPT API (pastikan Anda sudah menyiapkan API key)
+    const response = await sendChatWithChatGPT(context);
+    appendChatMessage("Bot", response);
+    context.push({ role: "assistant", content: response });
+    localStorage.setItem('chatContext', JSON.stringify(context));
     input.value = "";
   }
 }
@@ -113,6 +112,35 @@ function appendChatMessage(sender, message) {
   msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
   chatWindow.appendChild(msgDiv);
   chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+// Fungsi untuk menghubungkan dengan ChatGPT API
+async function sendChatWithChatGPT(context) {
+  const apiKey = "YOUR_OPENAI_API_KEY"; // Ganti dengan API key asli Anda
+  const url = "https://api.openai.com/v1/chat/completions";
+  const data = {
+    model: "gpt-3.5-turbo",
+    messages: context
+  };
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`
+      },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    if (result.choices && result.choices[0]) {
+      return result.choices[0].message.content;
+    } else {
+      return "Sorry, I couldn't process your request at the moment.";
+    }
+  } catch (error) {
+    console.error("Error communicating with ChatGPT API:", error);
+    return "An error occurred while communicating with the AI.";
+  }
 }
 
 // VOICE INPUT USING WEB SPEECH API
@@ -138,9 +166,8 @@ async function connectWallet() {
       const walletAddress = accounts[0];
       document.getElementById('walletAddress').textContent = walletAddress;
       document.getElementById('walletBalance').textContent = "2500"; // Simulasi saldo token
-      document.getElementById('walletInfo').style.display = 'block';
-      // (Opsional) Panggil API Coingecko untuk update harga token
       updateTokenPrice();
+      document.getElementById('walletInfo').style.display = 'block';
     } catch (error) {
       alert("Error connecting wallet: " + error.message);
     }
@@ -149,7 +176,6 @@ async function connectWallet() {
   }
 }
 function updateTokenPrice() {
-  // Simulasi update harga token dengan API Coingecko
   fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
     .then(response => response.json())
     .then(data => {
@@ -168,68 +194,6 @@ function initiate2FA() {
     alert("Invalid code. Please try again.");
   }
 }
-function earnReward() {
-  alert("You have earned the Security Star badge!");
-  document.getElementById('rewardBadge').style.display = 'block';
-}
-
-// BLOCKCHAIN & SECURITY FUNCTIONS
-
-// Fungsi Connect Wallet menggunakan Web3/Ethers (Simulasi)
-async function connectWallet() {
-  if (typeof window.ethereum !== 'undefined') {
-    try {
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const walletAddress = accounts[0];
-      document.getElementById('walletAddress').textContent = walletAddress;
-      // Simulasi saldo token
-      document.getElementById('walletBalance').textContent = "2500";
-      // Panggil fungsi update harga token
-      updateTokenPrice();
-      document.getElementById('walletInfo').style.display = 'block';
-    } catch (error) {
-      alert("Error connecting wallet: " + error.message);
-    }
-  } else {
-    alert("MetaMask is not available. Please install it to connect your wallet.");
-  }
-}
-
-// Fungsi untuk mengambil harga token dari Coingecko (simulasi real-time)
-function updateTokenPrice() {
-  fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
-    .then(response => response.json())
-    .then(data => {
-      if (data.ethereum && data.ethereum.usd) {
-        document.getElementById('tokenPrice').textContent = "$" + data.ethereum.usd;
-      }
-    })
-    .catch(error => console.error("Error fetching token price:", error));
-}
-
-// Enhanced 2FA Function (Simulasi TOTP)
-function initiate2FA() {
-  const code = prompt("Enter your 6-digit TOTP code (simulated):");
-  if (code === "654321") {
-    alert("Enhanced 2FA enabled successfully!");
-    document.getElementById('securityStatus').textContent = "Enhanced 2FA is active.";
-  } else {
-    alert("Invalid code. Please try again.");
-  }
-}
-
-// Simulasi Anti-DDoS Monitoring
-function simulateAntiDDoS() {
-  // Menggunakan angka acak untuk mensimulasikan status keamanan
-  const random = Math.random();
-  if (random > 0.8) {
-    document.getElementById('securityStatus').textContent = "Warning: High traffic detected. Security protocols activated.";
-  } else {
-    document.getElementById('securityStatus').textContent = "Security Status: All systems normal.";
-  }
-}
-
-// Fungsi Earn Reward Badge (Simulasi)
 function earnReward() {
   alert("You have earned the Security Star badge!");
   document.getElementById('rewardBadge').style.display = 'block';
