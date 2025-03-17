@@ -1,16 +1,20 @@
 // Jalankan fungsi saat DOM telah dimuat
 document.addEventListener('DOMContentLoaded', () => {
   startTypewriter();
-  // Cek apakah user sudah login dari localStorage
+  // Cek apakah user sudah login melalui localStorage
   const loggedInUser = localStorage.getItem('loggedInUser');
   if (loggedInUser) {
     document.getElementById('usernameDisplay').textContent = loggedInUser;
     document.getElementById('dashboard').style.display = 'block';
   }
+  // Mulai context retention untuk chatbot
+  if (!localStorage.getItem('chatContext')) {
+    localStorage.setItem('chatContext', JSON.stringify([]));
+  }
 });
 
 // TYPEWRITER EFFECT
-const typewriterText = "The Future of AI & Cyber Tech";
+const typewriterText = "The Future of AI, Blockchain & Cyber Security";
 let i = 0;
 function startTypewriter() {
   if (i < typewriterText.length) {
@@ -82,14 +86,22 @@ document.addEventListener('scroll', () => {
   });
 });
 
-// CHATBOT FUNCTIONS
+// CHATBOT FUNCTIONS WITH CONTEXT RETENTION
 function sendChat() {
   const input = document.getElementById('chatInput');
   const message = input.value.trim();
   if (message !== "") {
     appendChatMessage("User", message);
+    // Simpan pesan ke konteks (sederhana)
+    let context = JSON.parse(localStorage.getItem('chatContext'));
+    context.push({ sender: "User", message });
+    localStorage.setItem('chatContext', JSON.stringify(context));
+    // Simulasi respons chatbot dengan konteks sederhana
     setTimeout(() => {
-      appendChatMessage("Bot", "Thank you for your message! Our AI is continuously learning.");
+      const response = "Our AI has noted your input. How else can I assist you?";
+      appendChatMessage("Bot", response);
+      context.push({ sender: "Bot", message: response });
+      localStorage.setItem('chatContext', JSON.stringify(context));
     }, 1000);
     input.value = "";
   }
@@ -103,7 +115,7 @@ function appendChatMessage(sender, message) {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-// VOICE INPUT (WEB SPEECH API)
+// VOICE INPUT USING WEB SPEECH API
 function startVoiceInput() {
   if (!('webkitSpeechRecognition' in window)) {
     alert("Voice recognition is not supported in your browser.");
@@ -118,21 +130,34 @@ function startVoiceInput() {
   };
 }
 
-// BLOCKCHAIN & SECURITY FUNCTIONS (Tahap 1 simulasi dasar)
+// BLOCKCHAIN & SECURITY FUNCTIONS
 async function connectWallet() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const walletAddress = accounts[0];
       document.getElementById('walletAddress').textContent = walletAddress;
-      document.getElementById('walletBalance').textContent = "2500";
+      document.getElementById('walletBalance').textContent = "2500"; // Simulasi saldo token
       document.getElementById('walletInfo').style.display = 'block';
+      // (Opsional) Panggil API Coingecko untuk update harga token
+      updateTokenPrice();
     } catch (error) {
       alert("Error connecting wallet: " + error.message);
     }
   } else {
     alert("MetaMask is not available. Please install it to connect your wallet.");
   }
+}
+function updateTokenPrice() {
+  // Simulasi update harga token dengan API Coingecko
+  fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
+    .then(response => response.json())
+    .then(data => {
+      if (data.ethereum && data.ethereum.usd) {
+        document.getElementById('tokenPrice').textContent = "$" + data.ethereum.usd;
+      }
+    })
+    .catch(error => console.error("Error fetching token price:", error));
 }
 function initiate2FA() {
   const code = prompt("Enter your 6-digit TOTP code (simulated):");
