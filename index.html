@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PROJECTGPT 2.0 - Tahap 2: AI & Dashboard</title>
+  <title>PROJECTGPT 2.0 - Final Update</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet" />
@@ -21,6 +21,8 @@
       <a href="#features">Features</a>
       <a href="#chatbot">Chatbot</a>
       <a href="#dashboard">Dashboard</a>
+      <a href="#blockchain">Blockchain</a>
+      <a href="#security">Security</a>
       <a href="#contact">Contact</a>
       <a href="javascript:void(0)" onclick="openLoginModal()">Login</a>
       <button class="dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
@@ -37,7 +39,7 @@
     <div class="hero-content">
       <h1 class="glitch-text" data-text="WELCOME TO PROJECTGPT">WELCOME TO PROJECTGPT</h1>
       <h2 class="typewriter"></h2>
-      <p>Experience the future of AI integration and personalized dashboard technology.</p>
+      <p>Experience the future of AI, Blockchain & Cyber Security.</p>
       <button class="btn-futuristic" onclick="openModal()">Learn More</button>
     </div>
     <img src="https://source.unsplash.com/1920x1080/?cyberpunk,city" alt="Parallax Background" class="parallax-bg" loading="lazy">
@@ -48,16 +50,16 @@
     <h2>Futuristic Features</h2>
     <div class="features-container">
       <div class="feature-card">
-        <h3>Interactive AI Chatbot</h3>
-        <p>Context-aware conversations and voice input for a natural interaction.</p>
+        <h3>Neon UI/UX</h3>
+        <p>Modern interface with glowing effects and smooth animations.</p>
       </div>
       <div class="feature-card">
-        <h3>Real-Time Dashboard</h3>
-        <p>Live token data, NFT collection, and activity log at your fingertips.</p>
+        <h3>Responsive Design</h3>
+        <p>Optimized display on mobile, tablet, and desktop devices.</p>
       </div>
       <div class="feature-card">
-        <h3>Responsive UI</h3>
-        <p>Smooth transitions and futuristic animations across all devices.</p>
+        <h3>Dark Mode Toggle</h3>
+        <p>Switch themes instantly for a personalized experience.</p>
       </div>
     </div>
   </section>
@@ -65,13 +67,13 @@
   <!-- CHATBOT SECTION -->
   <section class="chatbot" id="chatbot">
     <h2>AI Chatbot</h2>
-    <p>Type your query or use voice command to interact with our AI assistant.</p>
+    <p>Ask your questions using text or voice – our AI is powered by advanced models.</p>
     <div class="chat-container">
       <div class="chat-window" id="chatWindow"></div>
       <div class="chat-input-container">
         <input type="text" id="chatInput" placeholder="Type your message here..." />
         <button class="btn-futuristic" onclick="sendChat()">Send</button>
-        <button class="btn-futuristic" onclick="startVoiceInput()">ðŸŽ¤</button>
+        <button class="btn-futuristic" onclick="startVoiceInput()"></button>
       </div>
     </div>
   </section>
@@ -79,7 +81,7 @@
   <!-- DASHBOARD SECTION -->
   <section class="dashboard" id="dashboard" style="display:none;">
     <h2>User Dashboard (Beta)</h2>
-    <p>Welcome, <span id="usernameDisplay"></span>! Hereâ€™s your live data:</p>
+    <p>Welcome, <span id="usernameDisplay"></span>! Here’s your live data:</p>
     <div class="dashboard-widgets">
       <div class="widget">
         <h3>Token Balance</h3>
@@ -96,31 +98,39 @@
     </div>
   </section>
 
-<!-- BLOCKCHAIN & SECURITY SECTION -->
-<section class="blockchain" id="blockchain">
-  <h2>Blockchain & Security Integration</h2>
-  <p>Manage your wallet, view live token data, and secure your account with enhanced 2FA.</p>
-  <div class="blockchain-container">
-    <button class="btn-futuristic" onclick="connectWallet()">Connect Wallet</button>
-    <div id="walletInfo" style="display:none;">
-      <p>Your Wallet: <span id="walletAddress"></span></p>
-      <p>Token Balance: <span id="walletBalance">0</span></p>
-      <p>Token Price: <span id="tokenPrice">$0.00</span></p>
+  <!-- BLOCKCHAIN SECTION -->
+  <section class="blockchain" id="blockchain">
+    <h2>Blockchain Integration</h2>
+    <p>Connect your wallet and view real-time blockchain data.</p>
+    <div class="blockchain-container">
+      <button class="btn-futuristic" onclick="connectWallet()">Connect Wallet</button>
+      <div id="walletInfo" style="display:none;">
+        <p>Your Wallet: <span id="walletAddress"></span></p>
+        <p>Token Balance: <span id="walletBalance">0</span></p>
+        <p>Token Price: <span id="tokenPrice">$0.00</span></p>
+      </div>
     </div>
-    <button class="btn-futuristic" onclick="initiate2FA()">Enable Enhanced 2FA</button>
-    <button class="btn-futuristic" onclick="simulateAntiDDoS()">Check Security Status</button>
-    <button class="btn-futuristic" onclick="earnReward()">Earn Reward Badge</button>
-  </div>
-  <div id="securityStatus" class="security-status"></div>
-  <div id="rewardBadge" class="reward-badge" style="display:none;">
-    <p>Congratulations! You earned the "Security Star" badge.</p>
-  </div>
-</section>
+  </section>
+
+  <!-- SECURITY & GAMIFICATION SECTION -->
+  <section class="security" id="security">
+    <h2>Advanced Security & Rewards</h2>
+    <p>Enhance your account security and earn rewards for your engagement.</p>
+    <div class="security-container">
+      <button class="btn-futuristic" onclick="initiate2FA()">Enable Enhanced 2FA</button>
+      <button class="btn-futuristic" onclick="simulateAntiDDoS()">Check Security Status</button>
+      <button class="btn-futuristic" onclick="earnReward()">Earn Reward Badge</button>
+    </div>
+    <div id="securityStatus" class="security-status"></div>
+    <div id="rewardBadge" class="reward-badge" style="display:none;">
+      <p>Congratulations! You earned the "Security Star" badge.</p>
+    </div>
+  </section>
 
   <!-- CONTACT SECTION -->
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
-    <p>Have questions? Reach out to us!</p>
+    <p>Have questions or want to collaborate? Reach out!</p>
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
@@ -132,7 +142,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <p>&copy; 2025 PROJECTGPT. All Rights Reserved.</p>
-    <button class="scroll-top-btn" onclick="scrollToTop()">â†‘</button>
+    <button class="scroll-top-btn" onclick="scrollToTop()"></button>
   </footer>
 
   <!-- INFO MODAL -->
@@ -140,7 +150,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <h2>About PROJECTGPT</h2>
-      <p>PROJECTGPT integrates advanced AI and blockchain technology with a futuristic interface.</p>
+      <p>
+        PROJECTGPT integrates advanced AI, blockchain technology, and top-notch security to empower your digital journey.
+      </p>
     </div>
   </div>
 
