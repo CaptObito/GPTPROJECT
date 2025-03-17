@@ -1,7 +1,7 @@
 // Jalankan fungsi saat DOM telah dimuat
 document.addEventListener('DOMContentLoaded', () => {
   startTypewriter();
-  // Periksa apakah user sudah login (gunakan localStorage)
+  // Cek apakah user sudah login dari localStorage
   const loggedInUser = localStorage.getItem('loggedInUser');
   if (loggedInUser) {
     document.getElementById('usernameDisplay').textContent = loggedInUser;
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // TYPEWRITER EFFECT
-const typewriterText = "The Future of AI, Blockchain & Cyber Security";
+const typewriterText = "The Future of AI & Cyber Tech";
 let i = 0;
 function startTypewriter() {
   if (i < typewriterText.length) {
@@ -118,14 +118,13 @@ function startVoiceInput() {
   };
 }
 
-// BLOCKCHAIN & SECURITY FUNCTIONS
+// BLOCKCHAIN & SECURITY FUNCTIONS (Tahap 1 simulasi dasar)
 async function connectWallet() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const walletAddress = accounts[0];
       document.getElementById('walletAddress').textContent = walletAddress;
-      // Simulasi saldo token (ganti dengan data real melalui API jika tersedia)
       document.getElementById('walletBalance').textContent = "2500";
       document.getElementById('walletInfo').style.display = 'block';
     } catch (error) {
