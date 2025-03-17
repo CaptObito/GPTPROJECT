@@ -1,7 +1,7 @@
-// Jalankan fungsi ketika DOM sudah termuat
+// Jalankan fungsi saat DOM telah dimuat
 document.addEventListener('DOMContentLoaded', () => {
   startTypewriter();
-  // Periksa user login dari localStorage
+  // Periksa apakah user sudah login (gunakan localStorage)
   const loggedInUser = localStorage.getItem('loggedInUser');
   if (loggedInUser) {
     document.getElementById('usernameDisplay').textContent = loggedInUser;
@@ -68,7 +68,7 @@ function logout() {
   document.getElementById('dashboard').style.display = 'none';
 }
 
-// FADE-IN EFFECT ON SCROLL
+// FADE-IN ON SCROLL
 document.addEventListener('scroll', () => {
   const fadeElements = document.querySelectorAll('.fade-in');
   const screenHeight = window.innerHeight;
@@ -103,7 +103,7 @@ function appendChatMessage(sender, message) {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-// VOICE INPUT USING WEB SPEECH API
+// VOICE INPUT (WEB SPEECH API)
 function startVoiceInput() {
   if (!('webkitSpeechRecognition' in window)) {
     alert("Voice recognition is not supported in your browser.");
@@ -116,4 +116,35 @@ function startVoiceInput() {
     const transcript = event.results[0][0].transcript;
     document.getElementById('chatInput').value = transcript;
   };
+}
+
+// BLOCKCHAIN & SECURITY FUNCTIONS
+async function connectWallet() {
+  if (typeof window.ethereum !== 'undefined') {
+    try {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      const walletAddress = accounts[0];
+      document.getElementById('walletAddress').textContent = walletAddress;
+      // Simulasi saldo token (ganti dengan data real melalui API jika tersedia)
+      document.getElementById('walletBalance').textContent = "2500";
+      document.getElementById('walletInfo').style.display = 'block';
+    } catch (error) {
+      alert("Error connecting wallet: " + error.message);
+    }
+  } else {
+    alert("MetaMask is not available. Please install it to connect your wallet.");
+  }
+}
+function initiate2FA() {
+  const code = prompt("Enter your 6-digit TOTP code (simulated):");
+  if (code === "654321") {
+    alert("Enhanced 2FA enabled successfully!");
+    document.getElementById('securityStatus').textContent = "Enhanced 2FA is active.";
+  } else {
+    alert("Invalid code. Please try again.");
+  }
+}
+function earnReward() {
+  alert("You have earned the Security Star badge!");
+  document.getElementById('rewardBadge').style.display = 'block';
 }
