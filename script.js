@@ -197,3 +197,81 @@ function earnReward() {
   alert("You have earned the Security Star badge!");
   document.getElementById('rewardBadge').style.display = 'block';
 }
+
+// Fungsi untuk mengirim pesan ke ChatGPT API
+async function sendChatWithChatGPT(context) {
+  // Ambil API key dari environment variable atau langsung pakai string (jangan lakukan ini di produksi!)
+  const apiKey = process.env.OPENAI_API_KEY || "AKUCINTAKAMU";  
+  const url = "https://api.openai.com/v1/chat/completions";
+  
+  const data = {
+    model: "gpt-4.0-turbo", // Atau model lain sesuai kebutuhan
+    messages: context // Context adalah array pesan, misalnya: [{ role: "user", content: "Hello" }]
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`
+      },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    if (result.choices && result.choices[0]) {
+      return result.choices[0].message.content;
+    } else {
+      return "Maaf, saya tidak dapat memproses permintaan Anda saat ini.";
+    }
+  } catch (error) {
+    console.error("Error communicating with ChatGPT API:", error);
+    return "Terjadi kesalahan saat menghubungkan ke AI.";
+  }
+}
+
+// Fungsi untuk mengirim chat (dipanggil saat tombol 'Send' diklik)
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const message = input.value.trim();
+  if (message !== "") {
+    appendChatMessage("User", message);
+    // Ambil konteks chat yang sudah ada, atau inisialisasi array kosong
+    let context = JSON.parse(localStorage.getItem('chatContext')) || [];
+    context.push({ role: "user", content: message });
+    localStorage.setItem('chatContext', JSON.stringify(context));
+    
+    // Kirim pesan ke ChatGPT API dan ambil responsnya
+    const response = await sendChatWithChatGPT(context);
+    appendChatMessage("Bot", response);
+    context.push({ role: "assistant", content: response });
+    localStorage.setItem('chatContext', JSON.stringify(context));
+    
+    input.value = "";
+  }
+}
+
+// Fungsi untuk menampilkan pesan di jendela chat
+function appendChatMessage(sender, message) {
+  const chatWindow = document.getElementById('chatWindow');
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'chat-message';
+  msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+  chatWindow.appendChild(msgDiv);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+// Fungsi untuk input suara menggunakan Web Speech API
+function startVoiceInput() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice recognition is not supported in your browser.");
+    return;
+  }
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.start();
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    document.getElementById('chatInput').value = transcript;
+  };
+}
