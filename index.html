@@ -96,6 +96,27 @@
     </div>
   </section>
 
+<!-- BLOCKCHAIN & SECURITY SECTION -->
+<section class="blockchain" id="blockchain">
+  <h2>Blockchain & Security Integration</h2>
+  <p>Manage your wallet, view live token data, and secure your account with enhanced 2FA.</p>
+  <div class="blockchain-container">
+    <button class="btn-futuristic" onclick="connectWallet()">Connect Wallet</button>
+    <div id="walletInfo" style="display:none;">
+      <p>Your Wallet: <span id="walletAddress"></span></p>
+      <p>Token Balance: <span id="walletBalance">0</span></p>
+      <p>Token Price: <span id="tokenPrice">$0.00</span></p>
+    </div>
+    <button class="btn-futuristic" onclick="initiate2FA()">Enable Enhanced 2FA</button>
+    <button class="btn-futuristic" onclick="simulateAntiDDoS()">Check Security Status</button>
+    <button class="btn-futuristic" onclick="earnReward()">Earn Reward Badge</button>
+  </div>
+  <div id="securityStatus" class="security-status"></div>
+  <div id="rewardBadge" class="reward-badge" style="display:none;">
+    <p>Congratulations! You earned the "Security Star" badge.</p>
+  </div>
+</section>
+
   <!-- CONTACT SECTION -->
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
