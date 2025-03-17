@@ -1,13 +1,13 @@
 // Jalankan fungsi saat DOM telah dimuat
 document.addEventListener('DOMContentLoaded', () => {
   startTypewriter();
-  // Periksa apakah user sudah login melalui localStorage
+  // Cek apakah user sudah login melalui localStorage
   const loggedInUser = localStorage.getItem('loggedInUser');
   if (loggedInUser) {
     document.getElementById('usernameDisplay').textContent = loggedInUser;
     document.getElementById('dashboard').style.display = 'block';
   }
-  // Siapkan konteks untuk chatbot (opsional)
+  // Siapkan konteks untuk chatbot
   if (!localStorage.getItem('chatContext')) {
     localStorage.setItem('chatContext', JSON.stringify([]));
   }
@@ -86,18 +86,17 @@ document.addEventListener('scroll', () => {
   });
 });
 
-// CHATBOT FUNCTIONS WITH CHATGPT INTEGRATION
+// CHATBOT FUNCTIONS WITH ChatGPT API INTEGRATION
 async function sendChat() {
   const input = document.getElementById('chatInput');
   const message = input.value.trim();
   if (message !== "") {
     appendChatMessage("User", message);
-    // Simpan pesan ke konteks
     let context = JSON.parse(localStorage.getItem('chatContext'));
     context.push({ role: "user", content: message });
     localStorage.setItem('chatContext', JSON.stringify(context));
 
-    // Kirim pesan ke ChatGPT API (pastikan Anda sudah menyiapkan API key)
+    // Kirim pesan ke ChatGPT API
     const response = await sendChatWithChatGPT(context);
     appendChatMessage("Bot", response);
     context.push({ role: "assistant", content: response });
@@ -116,7 +115,7 @@ function appendChatMessage(sender, message) {
 
 // Fungsi untuk menghubungkan dengan ChatGPT API
 async function sendChatWithChatGPT(context) {
-  const apiKey = "YOUR_OPENAI_API_KEY"; // Ganti dengan API key asli Anda
+  const apiKey = process.env.OPENAI_API_KEY || "AKUCINTAKAMU"; // Pastikan kamu telah mengatur API key dengan aman
   const url = "https://api.openai.com/v1/chat/completions";
   const data = {
     model: "gpt-3.5-turbo",
