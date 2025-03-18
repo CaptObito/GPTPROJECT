@@ -314,3 +314,80 @@ body.dark-mode {
   border-radius: 10px;
   display: inline-block;
 }
+
+/* SECURITY & GAMIFICATION SECTION */
+.security {
+  background: linear-gradient(to right, #111, #000);
+  padding: 80px 20px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+}
+.security h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: cyan;
+}
+.security p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+.security-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.security-status {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: lime;
+}
+.reward-badge {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: magenta;
+  border: 2px solid magenta;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.level-info {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: orange;
+}
+
+/* Tombol Futuristik (jika belum ada, gunakan definisi yang sudah ada) */
+.btn-futuristic {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  color: #000;
+  background: cyan;
+  text-transform: uppercase;
+  font-weight: bold;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+}
+.btn-futuristic::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent);
+  transform: skewX(-30deg);
+  transition: 0.5s;
+}
+.btn-futuristic:hover::before {
+  left: 150%;
+}
+.btn-futuristic:hover {
+  background: magenta;
+  box-shadow: 0 0 20px magenta, 0 0 40px magenta;
+  color: #000;
+}
