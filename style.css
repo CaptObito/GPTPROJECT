@@ -10,7 +10,7 @@ body {
   color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  transition: background-color 0.5s, color 0.5s;
+  transition: background 0.5s, color 0.5s;
 }
 body.dark-mode {
   background-color: #fff;
@@ -20,43 +20,39 @@ body.dark-mode {
 /* NAVIGATION BAR */
 .navbar {
   position: fixed;
-  top: 0;
   width: 100%;
-  background: rgba(0,0,0,0.85);
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  z-index: 999;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
 }
 .logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-right: auto;
+  font-size: 1.8rem;
   color: cyan;
 }
 .nav-links {
+  margin-left: auto;
   display: flex;
   gap: 1rem;
-  align-items: center;
 }
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  padding: 8px 12px;
-  transition: background 0.3s;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 .nav-links a:hover {
-  background: cyan;
-  color: #000;
+  color: cyan;
 }
 .dark-mode-btn {
   background: none;
   border: 2px solid cyan;
-  padding: 5px 10px;
   color: cyan;
+  padding: 5px 10px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 .dark-mode-btn:hover {
   background: cyan;
@@ -64,34 +60,21 @@ body.dark-mode {
 }
 .hamburger {
   display: none;
-  flex-direction: column;
-  gap: 5px;
-  margin-left: 1rem;
-  cursor: pointer;
-}
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: cyan;
-  transition: 0.4s;
 }
 @media screen and (max-width: 768px) {
   .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background: rgba(0,0,0,0.95);
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    flex-direction: column;
-    transition: height 0.5s;
-  }
-  .nav-links.active {
-    height: 200px;
+    display: none;
   }
   .hamburger {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: cyan;
   }
 }
 
@@ -99,109 +82,63 @@ body.dark-mode {
 .hero {
   position: relative;
   height: 100vh;
-  padding-top: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
 }
-.hero-content {
-  z-index: 2;
-  max-width: 600px;
-  animation: slideIn 1s ease-out;
-}
-@keyframes slideIn {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-.hero-content h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  margin-bottom: 10px;
-  color: cyan;
-  text-shadow: 0 0 10px cyan;
-}
-.hero-content h2 {
-  margin-bottom: 20px;
-}
-.hero-content p {
-  margin: 10px 0;
-  font-size: 1.2rem;
-}
-.parallax-bg {
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: brightness(0.4);
+  background: linear-gradient(135deg, rgba(0,0,0,0.7), transparent);
   z-index: 1;
-  animation: fadeIn 1s ease-in;
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+  animation: fadeInUp 1s ease-out;
 }
-
-/* GLITCH & TYPEWRITER */
+@keyframes fadeInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 .glitch-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  color: cyan;
   position: relative;
   animation: glitch 2s infinite;
 }
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-}
-.glitch-text::before {
-  text-shadow: 2px 0 magenta;
-  top: 0;
-  left: 2px;
-  animation: glitch-anim 2s infinite;
-}
-.glitch-text::after {
-  text-shadow: -2px 0 lime;
-  top: 0;
-  left: -2px;
-  animation: glitch-anim2 2s infinite;
-}
 @keyframes glitch {
-  0% { text-shadow: 2px 0 magenta; }
-  20% { text-shadow: -2px 0 lime; }
-  40% { text-shadow: 2px 0 magenta; }
-  60% { text-shadow: -2px 0 lime; }
-  80% { text-shadow: 2px 0 magenta; }
-  100% { text-shadow: 2px 0 magenta; }
-}
-@keyframes glitch-anim {
-  0% { clip: rect(0,900px,0,0); }
-  5% { clip: rect(0,900px,100px,0); }
-  10% { clip: rect(0,900px,0,0); }
-  15% { clip: rect(0,900px,60px,0); }
-  20% { clip: rect(0,900px,0,0); }
-  100% { clip: rect(0,900px,0,0); }
-}
-@keyframes glitch-anim2 {
-  0% { clip: rect(100px,900px,100px,0); }
-  5% { clip: rect(0,900px,0,0); }
-  10% { clip: rect(50px,900px,100px,0); }
-  15% { clip: rect(0,900px,0,0); }
-  20% { clip: rect(70px,900px,100px,0); }
-  100% { clip: rect(0,900px,0,0); }
+  0% { clip: rect(42px, 9999px, 44px, 0); }
+  10% { clip: rect(85px, 9999px, 42px, 0); }
+  20% { clip: rect(10px, 9999px, 75px, 0); }
+  30% { clip: rect(50px, 9999px, 30px, 0); }
+  40% { clip: rect(20px, 9999px, 80px, 0); }
+  50% { clip: rect(55px, 9999px, 35px, 0); }
+  60% { clip: rect(10px, 9999px, 60px, 0); }
+  70% { clip: rect(25px, 9999px, 70px, 0); }
+  80% { clip: rect(40px, 9999px, 50px, 0); }
+  90% { clip: rect(20px, 9999px, 80px, 0); }
+  100% { clip: rect(42px, 9999px, 44px, 0); }
 }
 .typewriter {
   border-right: 3px solid cyan;
   white-space: nowrap;
   overflow: hidden;
-  width: 0;
+  font-size: 1.5rem;
+  margin: 20px 0;
   animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
 }
 @keyframes typing {
-  0% { width: 0; }
-  100% { width: 100%; }
+  from { width: 0; }
+  to { width: 100%; }
 }
 @keyframes blink {
   0%, 100% { border-color: transparent; }
@@ -210,15 +147,16 @@ body.dark-mode {
 
 /* BUTTON FUTURISTIC */
 .btn-futuristic {
-  position: relative;
-  display: inline-block;
   padding: 12px 24px;
-  color: #000;
   background: cyan;
-  text-transform: uppercase;
+  color: #000;
   font-weight: bold;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
   overflow: hidden;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   box-shadow: 0 0 10px cyan, 0 0 20px cyan;
 }
 .btn-futuristic::before {
@@ -228,7 +166,7 @@ body.dark-mode {
   left: -50%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
   transform: skewX(-30deg);
   transition: 0.5s;
 }
@@ -238,203 +176,20 @@ body.dark-mode {
 .btn-futuristic:hover {
   background: magenta;
   box-shadow: 0 0 20px magenta, 0 0 40px magenta;
-  color: #000;
 }
 
-/* FEATURES SECTION */
-.features {
-  background: #111;
+/* DASHBOARD, CHATBOT, CONTACT SECTION (Basic Styling) */
+.dashboard, .chatbot, .contact {
   padding: 80px 20px;
   text-align: center;
-  transition: all 0.4s ease-in-out;
-}
-.features h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: cyan;
-}
-.features-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-.feature-card {
-  background: rgba(255,255,255,0.1);
-  width: 250px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px cyan;
-  transition: transform 0.3s;
-}
-.feature-card:hover {
-  transform: scale(1.05);
-}
-.feature-card h3 {
-  margin-bottom: 10px;
-  color: magenta;
-}
-
-/* CHATBOT SECTION */
-.chatbot {
   background: #222;
-  padding: 80px 20px;
-  text-align: center;
-}
-.chatbot h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: cyan;
-}
-.chat-container {
-  max-width: 600px;
-  margin: 0 auto;
-  background: rgba(0,0,0,0.8);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px cyan;
-}
-.chat-window {
-  height: 300px;
-  overflow-y: auto;
-  background: #000;
-  border: 1px solid cyan;
-  padding: 10px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-.chat-input-container {
-  display: flex;
-  gap: 10px;
-}
-.chat-input-container input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid cyan;
-  background: #111;
-  color: #fff;
-}
-.chat-input-container button {
-  background: cyan;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.chat-input-container button:hover {
-  background: darkcyan;
-}
-
-/* DASHBOARD SECTION */
-.dashboard {
-  background: #222;
-  padding: 80px 20px;
-  text-align: center;
-}
-.dashboard h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: cyan;
-}
-.dashboard-widgets {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin: 20px 0;
-}
-.widget {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 10px;
-  width: 200px;
-  box-shadow: 0 0 10px cyan;
-  transition: transform 0.3s;
-}
-.widget:hover {
-  transform: scale(1.05);
-}
-.widget h3 {
-  margin-bottom: 10px;
-  color: magenta;
-}
-
-/* BLOCKCHAIN SECTION */
-.blockchain {
-  background: linear-gradient(to right, #222, #000);
-  padding: 80px 20px;
-  text-align: center;
-  transition: all 0.4s ease-in-out;
-}
-.blockchain h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: cyan;
-}
-.blockchain p {
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-}
-.blockchain-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-/* SECURITY & GAMIFICATION SECTION */
-.security {
-  background: linear-gradient(to right, #111, #000);
-  padding: 80px 20px;
-  text-align: center;
-  transition: all 0.4s ease-in-out;
-}
-.security h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: cyan;
-}
-.security p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-}
-.security-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-.security-status {
   margin-top: 20px;
-  font-size: 1.1rem;
-  color: lime;
 }
-.reward-badge {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: magenta;
-  border: 2px solid magenta;
-  padding: 10px;
-  border-radius: 10px;
-  display: inline-block;
-}
-
-/* CONTACT SECTION */
-.contact {
-  background: #222;
-  padding: 80px 20px;
-  text-align: center;
-}
-.contact h2 {
+.dashboard h2, .chatbot h2, .contact h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 2rem;
-  margin-bottom: 20px;
   color: cyan;
+  margin-bottom: 20px;
 }
 .contact-form {
   max-width: 500px;
@@ -443,118 +198,11 @@ body.dark-mode {
   flex-direction: column;
   gap: 15px;
 }
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  border: 2px solid cyan;
-  background: rgba(0,255,255,0.1);
-  color: #fff;
-  font-family: 'Rajdhani', sans-serif;
-}
-.contact-form button {
-  background: cyan;
-  color: #000;
-  border: none;
-  padding: 15px 0;
-  cursor: pointer;
-  font-weight: bold;
-}
 
 /* FOOTER */
 .footer {
   background: #000;
   text-align: center;
   padding: 20px;
-  position: relative;
-}
-.footer p {
-  margin: 0;
   color: cyan;
 }
-.scroll-top-btn {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  background: cyan;
-  color: #000;
-  border: none;
-  cursor: pointer;
-  padding: 10px 15px;
-  font-size: 1rem;
-  border-radius: 5px;
-}
-
-/* MODALS */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.7);
-}
-.modal-content {
-  background-color: #111;
-  margin: 10% auto;
-  padding: 20px;
-  border: 2px solid cyan;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
-  position: relative;
-}
-.modal-content h2 {
-  margin-bottom: 15px;
-  color: cyan;
-}
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 30px;
-  color: cyan;
-  cursor: pointer;
-}
-
-/* SECURITY & GAMIFICATION SECTION */
-.security {
-  background: linear-gradient(to right, #111, #000);
-  padding: 80px 20px;
-  text-align: center;
-  transition: all 0.4s ease-in-out;
-}
-.security h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: cyan;
-}
-.security p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-}
-.security-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-.security-status {
-  margin-top: 20px;
-  font-size: 1.1rem;
-  color: lime;
-}
-.reward-badge {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: magenta;
-  border: 2px solid magenta;
-  padding: 10px;
-  border-radius: 10px;
-  display: inline-block;
-}
-
-/* Tombol Futuristik sudah disempurnakan sebelumnya, pastikan tetap konsisten */
