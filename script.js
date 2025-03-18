@@ -218,7 +218,7 @@ async function sendChatWithChatGPT(context) {
 
 // newsIntegration.js
 async function fetchLatestNews() {
-  const apiKey = "YOUR_NEWS_API_KEY"; // Ganti dengan API key kamu
+  const apiKey = "e18c0feb7fcd4d2ca95cadca8f8b1aed"; // Ganti dengan API key kamu
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&pageSize=10&apiKey=${apiKey}`;
   try {
     const response = await fetch(url);
