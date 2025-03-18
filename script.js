@@ -215,3 +215,40 @@ async function sendChatWithChatGPT(context) {
     return "An error occurred while communicating with the AI.";
   }
 }
+
+// newsIntegration.js
+async function fetchLatestNews() {
+  const apiKey = "YOUR_NEWS_API_KEY"; // Ganti dengan API key kamu
+  const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&pageSize=10&apiKey=${apiKey}`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.articles; // Mengembalikan array berita
+  } catch (error) {
+    console.error("Error fetching news:", error);
+    return [];
+  }
+}
+
+function updateNewsSection(articles) {
+  const newsContainer = document.getElementById("newsContainer");
+  newsContainer.innerHTML = ""; // Bersihkan konten lama
+  articles.forEach(article => {
+    const articleDiv = document.createElement("div");
+    articleDiv.className = "news-item";
+    articleDiv.innerHTML = `
+      <h3>${article.title}</h3>
+      <p>${article.description || ""}</p>
+      <a href="${article.url}" target="_blank">Read more</a>
+    `;
+    newsContainer.appendChild(articleDiv);
+  });
+}
+
+// Fungsi untuk refresh berita setiap 5 menit
+async function refreshNews() {
+  const articles = await fetchLatestNews();
+  updateNewsSection(articles);
+}
+setInterval(refreshNews, 300000); // 300000 ms = 5 menit
+refreshNews();
