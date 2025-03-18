@@ -1,0 +1,15 @@
+{
+  "name": "gptproject",
+  "version": "4.0.0",
+  "description": "GPTPROJECT - Futuristik Bloomberg-like Terminal for Crypto, AI & Blockchain",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.3.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
