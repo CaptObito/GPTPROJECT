@@ -206,3 +206,49 @@ body.dark-mode {
   padding: 20px;
   color: cyan;
 }
+
+/* CRYPTO DASHBOARD SECTION */
+.crypto-dashboard {
+  background: #111;
+  padding: 40px 20px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.crypto-dashboard h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: cyan;
+}
+
+#cryptoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.crypto-widget {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.3s ease;
+}
+
+.crypto-widget:hover {
+  transform: scale(1.05);
+}
+
+.crypto-widget h3 {
+  margin-bottom: 10px;
+  color: magenta;
+}
+
+.crypto-widget p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #fff;
+}
