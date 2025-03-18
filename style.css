@@ -252,3 +252,65 @@ body.dark-mode {
   margin: 5px 0;
   color: #fff;
 }
+
+/* BLOCKCHAIN & SECURITY SECTION */
+.blockchain {
+  background: linear-gradient(to right, #222, #000);
+  padding: 80px 20px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+}
+.blockchain h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: cyan;
+}
+.blockchain p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+.blockchain-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* SECURITY & GAMIFICATION SECTION */
+.security {
+  background: linear-gradient(to right, #111, #000);
+  padding: 80px 20px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+}
+.security h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: cyan;
+}
+.security p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+.security-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.security-status {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: lime;
+}
+.reward-badge {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: magenta;
+  border: 2px solid magenta;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
