@@ -109,3 +109,55 @@ function earnReward() {
   alert("You have earned the Security Star badge!");
   document.getElementById('rewardBadge').style.display = 'block';
 }
+
+// -------------------
+// SECURITY & GAMIFICATION FUNCTIONS
+// -------------------
+
+// Fungsi Enhanced 2FA (Simulasi TOTP)
+function initiate2FA() {
+  const code = prompt("Enter your 6-digit TOTP code (simulated):");
+  if (code === "654321") {
+    alert("Enhanced 2FA enabled successfully!");
+    document.getElementById('securityStatus').textContent = "Enhanced 2FA is active.";
+  } else {
+    alert("Invalid code. Please try again.");
+  }
+}
+
+// Fungsi simulasi Anti-DDoS Monitoring
+function simulateAntiDDoS() {
+  const random = Math.random();
+  if (random > 0.8) {
+    document.getElementById('securityStatus').textContent = "Warning: High traffic detected. Security protocols activated.";
+  } else {
+    document.getElementById('securityStatus').textContent = "Security Status: All systems normal.";
+  }
+}
+
+// Fungsi untuk mendapatkan reward badge (Simulasi)
+function earnReward() {
+  alert("You have earned the Security Star badge!");
+  document.getElementById('rewardBadge').style.display = 'block';
+}
+
+// --- Gamification: Simulasi sistem leveling dan poin ---
+let userPoints = 0;
+let userLevel = 1;
+
+function gainPoints() {
+  // Simulasikan penambahan poin
+  const pointsEarned = Math.floor(Math.random() * 100) + 1; // Dapatkan poin antara 1 dan 100
+  userPoints += pointsEarned;
+  
+  // Cek jika user mencapai threshold untuk naik level
+  if (userPoints >= userLevel * 500) {
+    userLevel++;
+    alert("Congratulations! You've leveled up to Level " + userLevel);
+  }
+  
+  // Update tampilan level dan poin
+  document.getElementById('userPoints').textContent = userPoints;
+  document.getElementById('userLevel').textContent = userLevel;
+  alert("You earned " + pointsEarned + " points!");
+}
