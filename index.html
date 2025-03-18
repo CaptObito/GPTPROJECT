@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GPTPROJECT V3.0.00 - Futuristik UI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GPTPROJECT V4.0 - Futuristik & Real-Time</title>
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet" />
   <!-- Link CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Script dengan defer -->
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -17,7 +18,10 @@
     <div class="logo">GPTPROJECT</div>
     <nav class="nav-links" id="navLinks">
       <a href="#hero">Home</a>
-      <a href="#dashboard">Dashboard</a>
+      <a href="#faq">FAQ</a>
+      <a href="#live-price">Live Prices</a>
+      <a href="#blockchain">Blockchain</a>
+      <a href="#security">Security</a>
       <a href="#chatbot">Chatbot</a>
       <a href="#contact">Contact</a>
       <button class="dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
@@ -28,82 +32,101 @@
       <span></span>
     </div>
   </header>
-  
+
   <!-- HERO SECTION -->
   <section class="hero" id="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="glitch-text" data-text="WELCOME TO GPTPROJECT">WELCOME TO GPTPROJECT</h1>
       <h2 class="typewriter"></h2>
-      <p>Welcome to the future of crypto, AI, and cybersecurity.</p>
-      <button class="btn-futuristic">Explore Now</button>
+      <p>If a man empties his purse into his head, no man can take it away. – Benjamin Franklin</p>
+      <button class="btn-futuristic" onclick="alert('Welcome to the Future!')">Join Now</button>
     </div>
   </section>
-  
-  <!-- DASHBOARD SECTION (Placeholder) -->
-  <section class="dashboard" id="dashboard">
-    <h2>Dashboard</h2>
-    <p>Real-time data, analytics, and more.</p>
-  </section>
- 
-<!-- BLOCKCHAIN & SECURITY SECTION -->
-<section class="blockchain" id="blockchain">
-  <h2>Blockchain Integration</h2>
-  <p>Connect your wallet and view real-time blockchain data.</p>
-  <div class="blockchain-container">
-    <button class="btn-futuristic" onclick="connectWallet()">Connect Wallet</button>
-    <div id="walletInfo" style="display:none;">
-      <p>Your Wallet: <span id="walletAddress"></span></p>
-      <p>Token Balance: <span id="walletBalance">0</span></p>
-      <p>Token Price: <span id="tokenPrice">$0.00</span></p>
+
+  <!-- FAQ SECTION -->
+  <section class="faq" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-title">Apakah investasi di crypto pasti akan mendapatkan keuntungan?</button>
+        <div class="accordion-content">
+          <p>Tidak selalu, karena pasar crypto sangat fluktuatif. Anda harus melakukan riset dan manajemen risiko yang tepat.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-title">Apakah butuh modal besar untuk mulai berinvestasi di crypto?</button>
+        <div class="accordion-content">
+          <p>Tidak, Anda bisa mulai dengan modal kecil sesuai kemampuan. Penting untuk belajar dan memahami risiko terlebih dahulu.</p>
+        </div>
+      </div>
+      <!-- Tambahkan item FAQ lain sesuai kebutuhan -->
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SECURITY & GAMIFICATION SECTION -->
-<section class="security" id="security">
-  <h2>Advanced Security & Rewards</h2>
-  <p>Enhance your account security and earn rewards for engagement.</p>
-  <div class="security-container">
-    <button class="btn-futuristic" onclick="initiate2FA()">Enable Enhanced 2FA</button>
-    <button class="btn-futuristic" onclick="simulateAntiDDoS()">Check Security Status</button>
-    <button class="btn-futuristic" onclick="earnReward()">Earn Reward Badge</button>
-  </div>
-  <div id="securityStatus" class="security-status"></div>
-  <div id="rewardBadge" class="reward-badge" style="display:none;">
-    <p>Congratulations! You earned the "Security Star" badge.</p>
-  </div>
-</section>
- 
-<!-- CRYPTO DASHBOARD SECTION -->
-<section class="crypto-dashboard" id="crypto-dashboard">
-  <h2>Live Crypto Prices (Top 10)</h2>
-  <div id="cryptoContainer"></div>
-</section>
+  <!-- REAL-TIME PRICE ACTION SECTION -->
+  <section class="live-price" id="live-price">
+    <h2>Live Price Action (Top 10)</h2>
+    <div id="priceList" class="price-list"></div>
+  </section>
 
-  <!-- CHATBOT SECTION (Placeholder) -->
+  <!-- BLOCKCHAIN & SECURITY SECTION -->
+  <section class="blockchain" id="blockchain">
+    <h2>Blockchain Integration</h2>
+    <p>Connect your wallet and view real-time blockchain data.</p>
+    <div class="blockchain-container">
+      <button class="btn-futuristic" onclick="connectWallet()">Connect Wallet</button>
+      <div id="walletInfo" style="display:none;">
+        <p>Your Wallet: <span id="walletAddress"></span></p>
+        <p>Token Balance: <span id="walletBalance">0</span></p>
+        <p>Token Price: <span id="tokenPrice">$0.00</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="security" id="security">
+    <h2>Advanced Security & Rewards</h2>
+    <p>Enhance your account security and earn rewards as you engage with the platform.</p>
+    <div class="security-container">
+      <button class="btn-futuristic" onclick="initiate2FA()">Enable Enhanced 2FA</button>
+      <button class="btn-futuristic" onclick="simulateAntiDDoS()">Check Security Status</button>
+      <button class="btn-futuristic" onclick="earnReward()">Earn Reward Badge</button>
+      <button class="btn-futuristic" onclick="gainPoints()">Simulate Points Gain</button>
+    </div>
+    <div id="securityStatus" class="security-status"></div>
+    <div id="rewardBadge" class="reward-badge" style="display:none;">
+      <p>Congratulations! You earned the "Security Star" badge.</p>
+    </div>
+    <div id="levelInfo" class="level-info">
+      <p>Level: <span id="userLevel">1</span> | Points: <span id="userPoints">0</span></p>
+    </div>
+  </section>
+
+  <!-- CHATBOT SECTION -->
   <section class="chatbot" id="chatbot">
-    <h2>Chatbot</h2>
+    <h2>AI Chatbot</h2>
+    <p>Ask your questions using text, our AI is here to help!</p>
     <div class="chat-container">
       <div class="chat-window" id="chatWindow"></div>
       <div class="chat-input-container">
-        <input type="text" id="chatInput" placeholder="Ask me anything...">
+        <input type="text" id="chatInput" placeholder="Type your message here..." />
         <button class="btn-futuristic" onclick="sendChat()">Send</button>
       </div>
     </div>
   </section>
-  
+
   <!-- CONTACT SECTION -->
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
+    <p>Have questions or want to collaborate? Reach out!</p>
     <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message"></textarea>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message"></textarea>
       <button type="submit" class="btn-futuristic">Send Message</button>
     </form>
   </section>
-  
+
   <!-- FOOTER -->
   <footer class="footer">
     <p>&copy; 2025 GPTPROJECT. All Rights Reserved.</p>
