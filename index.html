@@ -1,41 +1,54 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Store</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top-Up Mobile Legends Futuristik</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Futuristic Store</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header><section id="home" class="hero">
-    <h2>Welcome to the Future of Gaming</h2>
-    <p>Top up your favorite games with ease.</p>
-    <button onclick="exploreProducts()">Explore Now</button>
-</section>
-
-<section id="products" class="product-list">
-    <h2>Our Products</h2>
-    <div class="product" id="ml-topup">
-        <img src="mlbb.jpg" alt="MLBB Top Up">
-        <h3>Mobile Legends Top Up</h3>
-        <p>Get diamonds instantly.</p>
-        <button onclick="buyProduct('MLBB Top Up')">Buy Now</button>
+  <header class="navbar">
+    <div class="logo">Top-Up ML Futuristik</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#products">Produk</a>
+      <a href="#about">Tentang</a>
+      <a href="#contact">Kontak</a>
+      <button class="btn-futuristic dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-</section>
+  </header>
 
-<footer>
-    <p>&copy; 2025 Futuristic Store. All rights reserved.</p>
-</footer>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="glitch-text" data-text="Selamat Datang">Selamat Datang</h1>
+      <h2 class="typewriter">Top-Up Mobile Legends Futuristik</h2>
+      <p>Rasakan pengalaman top-up diamond yang cepat dan mewah dengan tampilan futuristik.</p>
+      <button class="btn-futuristic" onclick="exploreProducts()">Explore Now</button>
+    </div>
+  </section>
 
+  <!-- Products Section -->
+  <section id="products" class="product-list">
+    <h2>Produk Kami</h2>
+    <div class="product" id="ml-topup">
+      <img src="mlbb.jpg" alt="MLBB Top Up">
+      <h3>Top-Up Mobile Legends</h3>
+      <p>Dapatkan diamond instan dengan harga terbaik.</p>
+      <button class="btn-futuristic" onclick="buyProduct('MLBB Top Up')">Beli Sekarang</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Top-Up ML Futuristik. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
