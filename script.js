@@ -1,23 +1,15 @@
-// Jalankan fungsi saat DOM telah dimuat
+// script.js
+
 document.addEventListener('DOMContentLoaded', () => {
   startTypewriter();
   setupAccordion();
-
-  // Cek apakah user sudah login
-  const loggedInUser = localStorage.getItem('loggedInUser');
-  if (loggedInUser) {
-    // Tampilkan dashboard atau data lain
-  }
-
-  // Panggil fetch pertama kali untuk live price
   fetchLivePriceAction();
-  // Interval 1 detik (1000 ms)
-  setInterval(fetchLivePriceAction, 1000);
+  fetchNews();
+  setInterval(fetchLivePriceAction, 1000); // Update live price setiap 1 detik
+  setInterval(fetchNews, 300000); // Refresh berita tiap 5 menit
 });
 
-// -------------------
-// NAVIGATION & DARK MODE
-// -------------------
+// Navigation & Dark Mode
 function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('active');
 }
@@ -25,22 +17,19 @@ function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
 }
 
-// -------------------
-// HERO SECTION (Typewriter)
+// Typewriter Effect
 let i = 0;
-const typewriterText = "Bloomberg-like Futuristic Platform";
+const typewriterText = "Top-Up Mobile Legends Futuristik";
 function startTypewriter() {
-  const typewriterEl = document.querySelector('.typewriter');
+  const typeEl = document.querySelector('.typewriter');
   if (i < typewriterText.length) {
-    typewriterEl.textContent += typewriterText.charAt(i);
+    typeEl.textContent += typewriterText.charAt(i);
     i++;
     setTimeout(startTypewriter, 100);
   }
 }
 
-// -------------------
-// ACCORDION FAQ
-// -------------------
+// Accordion FAQ
 function setupAccordion() {
   const accordionItems = document.querySelectorAll('.accordion-item');
   accordionItems.forEach(item => {
@@ -56,15 +45,14 @@ function setupAccordion() {
   });
 }
 
-// -------------------
-// LIVE PRICE ACTION - SETIAP DETIK
-// -------------------
+// Live Price Action (Crypto) menggunakan Binance API
 let oldPrices = {};
 async function fetchLivePriceAction() {
   try {
-    const response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false");
+    const response = await fetch("https://api.binance.com/api/v3/ticker/price");
     const data = await response.json();
-    updatePriceList(data);
+    const top10 = data.slice(0, 10);
+    updatePriceList(top10);
   } catch (error) {
     console.error("Error fetching live price data:", error);
   }
@@ -72,45 +60,65 @@ async function fetchLivePriceAction() {
 function updatePriceList(coins) {
   const priceList = document.getElementById("priceList");
   priceList.innerHTML = "";
-
   coins.forEach(coin => {
-    const oldPrice = oldPrices[coin.id] || coin.current_price;
-    const priceChange = coin.current_price - oldPrice;
-    
+    const oldPrice = oldPrices[coin.symbol] || parseFloat(coin.price);
+    const currentPrice = parseFloat(coin.price);
+    const priceChange = currentPrice - oldPrice;
     let changeClass = "";
     if (priceChange > 0) changeClass = "price-change-up";
     else if (priceChange < 0) changeClass = "price-change-down";
-
-    oldPrices[coin.id] = coin.current_price;
-
+    oldPrices[coin.symbol] = currentPrice;
     const coinDiv = document.createElement("div");
     coinDiv.className = "price-item";
     coinDiv.innerHTML = `
-      <h3>${coin.name} (${coin.symbol.toUpperCase()})</h3>
-      <p>Price: $${coin.current_price.toLocaleString()}</p>
+      <h3>${coin.symbol}</h3>
+      <p>Price: $${currentPrice.toFixed(2)}</p>
       <p class="${changeClass}">Change: ${priceChange.toFixed(4)}</p>
     `;
     priceList.appendChild(coinDiv);
   });
 }
 
-// -------------------
-// BLOCKCHAIN & SECURITY
-// -------------------
+// News Integration
+async function fetchNews() {
+  try {
+    const response = await fetch("/api/news");
+    const data = await response.json();
+    updateNewsSection(data.articles || []);
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
+}
+function updateNewsSection(articles) {
+  const newsContainer = document.getElementById("newsContainer");
+  newsContainer.innerHTML = "";
+  articles.forEach(article => {
+    const newsDiv = document.createElement("div");
+    newsDiv.className = "news-item";
+    newsDiv.innerHTML = `
+      <h3>${article.title}</h3>
+      <p>${article.description || ""}</p>
+      <a href="${article.url}" target="_blank">Read more</a>
+    `;
+    newsContainer.appendChild(newsDiv);
+  });
+}
+
+// Blockchain & Security (Simulated)
 async function connectWallet() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const walletAddress = accounts[0];
       document.getElementById('walletAddress').textContent = walletAddress;
-      document.getElementById('walletBalance').textContent = "2500"; // Simulasi saldo
+      document.getElementById('walletBalance').textContent = "2500";
       updateTokenPrice();
       document.getElementById('walletInfo').style.display = 'block';
     } catch (error) {
       alert("Error connecting wallet: " + error.message);
     }
   } else {
-    alert("MetaMask is not available. Please install it to connect your wallet.");
+    alert("MetaMask is not available. Please install it.");
   }
 }
 function updateTokenPrice() {
@@ -144,8 +152,6 @@ function earnReward() {
   alert("You have earned the Security Star badge!");
   document.getElementById('rewardBadge').style.display = 'block';
 }
-
-// Gamification: Level & Points
 let userPoints = 0;
 let userLevel = 1;
 function gainPoints() {
@@ -160,8 +166,7 @@ function gainPoints() {
   alert("You earned " + pointsEarned + " points!");
 }
 
-// -------------------
-// CHATBOT (GPT-based)
+// Chatbot (GPT-based)
 async function sendChat() {
   const input = document.getElementById('chatInput');
   const message = input.value.trim();
@@ -188,67 +193,20 @@ function appendChatMessage(sender, message) {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 async function sendChatWithChatGPT(context) {
-  // Ganti dengan environment variable atau langsung isi API key (tidak disarankan di produksi)
-  const apiKey = "AKUCINTAKAMU"; // <-- Ganti dengan API Key
-  const url = "https://api.openai.com/v1/chat/completions";
-  const data = {
-    model: "gpt-3.5-turbo",
-    messages: context
-  };
   try {
-    const response = await fetch(url, {
+    const response = await fetch("/api/chat", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`
-      },
-      body: JSON.stringify(data)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: context })
     });
-    const result = await response.json();
-    if (result.choices && result.choices[0]) {
-      return result.choices[0].message.content;
+    const data = await response.json();
+    if (data.choices && data.choices[0]) {
+      return data.choices[0].message.content;
     } else {
-      return "Sorry, I couldn't process your request at the moment.";
+      return "Sorry, I couldn't process your request.";
     }
   } catch (error) {
     console.error("Error communicating with ChatGPT API:", error);
     return "An error occurred while communicating with the AI.";
   }
 }
-
-// newsIntegration.js
-async function fetchLatestNews() {
-  const apiKey = "NEWS_API_KEY"; // Ganti dengan API key kamu
-  const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&pageSize=10&apiKey=${apiKey}`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.articles; // Mengembalikan array berita
-  } catch (error) {
-    console.error("Error fetching news:", error);
-    return [];
-  }
-}
-
-function updateNewsSection(articles) {
-  const newsContainer = document.getElementById("newsContainer");
-  newsContainer.innerHTML = ""; // Bersihkan konten lama
-  articles.forEach(article => {
-    const articleDiv = document.createElement("div");
-    articleDiv.className = "news-item";
-    articleDiv.innerHTML = `
-      <h3>${article.title}</h3>
-      <p>${article.description || ""}</p>
-      <a href="${article.url}" target="_blank">Read more</a>
-    `;
-    newsContainer.appendChild(articleDiv);
-  });
-}
-
-// Fungsi untuk refresh berita setiap 5 menit
-async function refreshNews() {
-  const articles = await fetchLatestNews();
-  updateNewsSection(articles);
-}
-setInterval(refreshNews, 300000); // 300000 ms = 5 menit
-refreshNews();
