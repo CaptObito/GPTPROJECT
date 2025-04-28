@@ -1,62 +1,69 @@
-import { useState } from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Input } from "@/components/ui/input"; import { motion } from "framer-motion"; import { ShoppingCart, Star } from "lucide-react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPTPROJECT - Top Up Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-export default function FuturisticMLBBStore() { const [selected, setSelected] = useState(null);
+  <header>
+    <div class="logo">GPTPROJECT Store</div>
+    <nav>
+      <a href="#products">Produk</a>
+      <a href="#checkout">Checkout</a>
+    </nav>
+  </header>
 
-const products = [ { id: 1, title: "86 Diamonds", price: 20000, image: "/mlbb1.png" }, { id: 2, title: "172 Diamonds", price: 40000, image: "/mlbb2.png" }, { id: 3, title: "257 Diamonds", price: 60000, image: "/mlbb3.png" }, { id: 4, title: "344 Diamonds", price: 80000, image: "/mlbb4.png" }, ];
+  <section class="hero">
+    <h1>Top Up Game Mobile Legends</h1>
+    <p>Mudah, Cepat, Aman - Pilih produk favoritmu!</p>
+    <a href="#products" class="btn-primary">Mulai Belanja</a>
+  </section>
 
-return ( <div className="min-h-screen bg-gradient-to-br from-black via-[#1b1b2f] to-[#162447] text-white p-4"> <motion.h1 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl font-bold text-center mb-8 drop-shadow-xl" > ProjectGPT Store - MLBB Top-Up </motion.h1>
+  <!-- Produk Section -->
+  <section id="products" class="product-grid">
+    <div class="product-card">
+      <img src="assets/diamond.png" alt="Diamond MLBB">
+      <h2>86 Diamonds</h2>
+      <p>Rp 25.000</p>
+      <button class="btn-secondary" onclick="selectProduct('86 Diamonds', 25000)">Beli</button>
+    </div>
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-    {products.map((product) => (
-      <motion.div
-        key={product.id}
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Card
-          className={`bg-gradient-to-br from-[#0f2027] to-[#203a43] border border-[#0ff] text-white rounded-2xl shadow-2xl p-4 hover:scale-105 transform transition duration-300 cursor-pointer ${
-            selected === product.id ? "ring-4 ring-[#00f7ff]" : ""
-          }`}
-          onClick={() => setSelected(product.id)}
-        >
-          <CardContent className="flex flex-col items-center space-y-4">
-            <img src={product.image} alt={product.title} className="h-24" />
-            <h2 className="text-xl font-semibold">{product.title}</h2>
-            <p className="text-sm text-gray-300">Rp {product.price.toLocaleString()}</p>
-          </CardContent>
-        </Card>
-      </motion.div>
-    ))}
-  </div>
+    <div class="product-card">
+      <img src="assets/diamond.png" alt="Diamond MLBB">
+      <h2>172 Diamonds</h2>
+      <p>Rp 50.000</p>
+      <button class="btn-secondary" onclick="selectProduct('172 Diamonds', 50000)">Beli</button>
+    </div>
 
-  {selected && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="mt-10 max-w-xl mx-auto bg-[#1f4068] p-6 rounded-2xl shadow-lg border border-cyan-500"
-    >
-      <h3 className="text-2xl font-bold mb-4 text-center">Form Pembelian</h3>
-      <form className="space-y-4">
-        <Input type="text" placeholder="User ID MLBB" className="bg-black/30 text-white" />
-        <Input type="text" placeholder="Zone ID" className="bg-black/30 text-white" />
-        <Input type="email" placeholder="Email untuk bukti pembayaran" className="bg-black/30 text-white" />
-        <Button className="w-full bg-cyan-500 hover:bg-cyan-400 text-black text-lg font-semibold rounded-xl">
-          <ShoppingCart className="mr-2" /> Beli Sekarang
-        </Button>
-      </form>
-    </motion.div>
-  )}
+    <div class="product-card">
+      <img src="assets/diamond.png" alt="Diamond MLBB">
+      <h2>344 Diamonds</h2>
+      <p>Rp 100.000</p>
+      <button class="btn-secondary" onclick="selectProduct('344 Diamonds', 100000)">Beli</button>
+    </div>
+  </section>
 
-  <motion.footer
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.3 }}
-    className="text-center mt-16 text-sm text-gray-400"
-  >
-    ProjectGPT Store © 2025 | Powered by AI
-  </motion.footer>
-</div>
+  <!-- Checkout Section -->
+  <section id="checkout" class="checkout-form">
+    <h1>Checkout</h1>
+    <form id="formCheckout">
+      <input type="text" id="userId" placeholder="User ID" required>
+      <input type="text" id="serverId" placeholder="Server ID" required>
+      <input type="text" id="selectedProduct" placeholder="Produk Pilihan" readonly required>
+      <input type="text" id="selectedPrice" placeholder="Harga" readonly required>
+      <select id="paymentMethod" required>
+        <option value="">Pilih Metode Pembayaran</option>
+        <option value="gopay">GoPay</option>
+        <option value="dana">Dana</option>
+        <option value="ovo">OVO</option>
+      </select>
+      <button class="btn-primary" type="submit">Bayar Sekarang</button>
+    </form>
+  </section>
 
-); }
-
+  <script src="script.js"></script>
+</body>
+</html>
