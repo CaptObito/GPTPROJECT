@@ -1,183 +1,231 @@
-/* Reset basic */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
   font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1f0036, #4c0070);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-body {
-  background: linear-gradient(to right, #10002b, #240046);
-  color: #ffffff;
-}
-
-/* Header */
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px #8e44ad;
 }
 
 .logo {
-  font-size: 26px;
+  font-size: 2rem;
   font-weight: bold;
-  color: #9d4edd;
+  color: #9b59b6;
 }
 
 nav a {
-  margin-left: 20px;
-  color: #ffffff;
+  margin: 0 15px;
   text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s ease;
+  font-weight: bold;
+  color: white;
+  position: relative;
 }
 
-nav a:hover {
-  color: #9d4edd;
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #9b59b6;
+  transition: 0.3s;
+  margin-top: 5px;
 }
 
-/* Hero Section */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* HERO SECTION */
 .hero {
   text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(to right, #5a189a, #7b2cbf);
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #5f0a87, #a4508b);
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 3.5rem;
   margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: 1.2rem;
   margin-bottom: 30px;
 }
 
 .btn-primary {
-  background: #9d4edd;
+  background: linear-gradient(90deg, #8e44ad, #9b59b6);
+  padding: 12px 30px;
   border: none;
-  padding: 15px 30px;
-  color: #ffffff;
-  font-size: 18px;
   border-radius: 30px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #8e44ad;
 }
 
 .btn-primary:hover {
-  background: #7b2cbf;
+  background: linear-gradient(90deg, #9b59b6, #8e44ad);
   transform: scale(1.05);
 }
 
-/* Product Section */
+/* PRODUCT GRID */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
   padding: 50px;
 }
 
 .product-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #9d4edd;
   border-radius: 20px;
   padding: 20px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .product-card img {
-  width: 100px;
-  margin-bottom: 20px;
+  width: 90px;
+  margin-bottom: 15px;
 }
 
 .product-card h2 {
-  font-size: 22px;
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
 .product-card p {
-  font-size: 18px;
+  font-size: 1rem;
   margin-bottom: 15px;
 }
 
 .btn-secondary {
-  background: transparent;
-  border: 2px solid #9d4edd;
-  padding: 10px 25px;
-  color: #9d4edd;
-  font-size: 16px;
+  background: linear-gradient(90deg, #00cec9, #81ecec);
+  padding: 10px 20px;
+  border: none;
   border-radius: 30px;
+  color: #000;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn-secondary:hover {
-  background: #9d4edd;
-  color: #ffffff;
+  background: linear-gradient(90deg, #81ecec, #00cec9);
+  transform: scale(1.05);
 }
 
-/* Checkout Section */
-.checkout-form {
-  padding: 50px;
-  background: linear-gradient(to right, #3c096c, #5a189a);
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  margin-top: 50px;
+/* FORM SECTION */
+.form-section {
+  background: rgba(255,255,255,0.08);
+  padding: 50px 20px;
+  margin: 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #9b59b6;
 }
 
-.checkout-form h1 {
+.form-section h2 {
   text-align: center;
   margin-bottom: 30px;
+  font-size: 2rem;
 }
 
-.checkout-form form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.checkout-form input,
-.checkout-form select {
-  padding: 15px;
+.form-group {
   margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
   border: none;
-  border-radius: 20px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
   outline: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
 }
 
-.checkout-form input::placeholder {
-  color: #cccccc;
+.submit-btn {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  width: 100%;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.checkout-form select {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+.submit-btn:hover {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
 }
 
-/* Animasi */
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 5px #9d4edd, 0 0 10px #9d4edd, 0 0 15px #9d4edd;
-  }
-  50% {
-    box-shadow: 0 0 10px #7b2cbf, 0 0 20px #7b2cbf, 0 0 30px #7b2cbf;
-  }
-  100% {
-    box-shadow: 0 0 5px #9d4edd, 0 0 10px #9d4edd, 0 0 15px #9d4edd;
-  }
+/* CONTACT SECTION */
+#contact {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.btn-primary, .btn-secondary {
-  animation: glow 2s infinite alternate;
+#contact h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+#contact p {
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.9);
+  font-size: 0.9rem;
+  margin-top: 50px;
 }
