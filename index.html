@@ -1,69 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GPTPROJECT - Top Up Store</title>
-  <link rel="stylesheet" href="style.css">
+  <title>GPTPROJECT STORE - Top Up Diamond MLBB</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .btn-primary {
+      background: #8e44ad;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-primary:hover {
+      background: #9b59b6;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+    }
+    .product-card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.2);
+    }
+    .product-card img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+    .btn-secondary {
+      background: #00cec9;
+      padding: 8px 15px;
+      border: none;
+      margin-top: 10px;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-secondary:hover {
+      background: #81ecec;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      font-size: 0.9rem;
+    }
+    .form-section {
+      background: rgba(255,255,255,0.1);
+      padding: 30px 20px;
+      margin: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+    .submit-btn {
+      background: #00cec9;
+      padding: 12px 25px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 20px;
+    }
+    .submit-btn:hover {
+      background: #81ecec;
+    }
+  </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="logo">RIKKXZ STORE</div>
-    <nav>
-      <a href="#products">Produk</a>
-      <a href="#checkout">Checkout</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">GPTPROJECT MLBB STORE</div>
+  <nav>
+    <a href="#products">Produk</a>
+    <a href="#checkout">Checkout</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h1>Top Up Game Mobile Legends</h1>
-    <p>Mudah, Cepat, Aman - Pilih produk favoritmu!</p>
-    <a href="#products" class="btn-primary">Mulai Belanja</a>
-  </section>
+<section class="hero">
+  <h1>Top Up Diamond Mobile Legends</h1>
+  <p>Termurah | Tercepat | Terpercaya</p>
+  <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView()">Lihat Produk</button>
+</section>
 
-  <!-- Produk Section -->
-  <section id="products" class="product-grid">
-    <div class="product-card">
-      <img src="assets/diamond.png" alt="Diamond MLBB">
-      <h2>86 Diamonds</h2>
-      <p>Rp 25.000</p>
-      <button class="btn-secondary" onclick="selectProduct('86 Diamonds', 25000)">Beli</button>
+<section id="products" class="product-grid">
+
+  <!-- PRODUK-PRODUK -->
+  <div class="product-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
+    <h2>86 Diamonds</h2>
+    <p>Rp22.000</p>
+    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
+  </div>
+  
+  <div class="product-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
+    <h2>172 Diamonds</h2>
+    <p>Rp43.000</p>
+    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
+    <h2>344 Diamonds</h2>
+    <p>Rp85.000</p>
+    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
+    <h2>514 Diamonds</h2>
+    <p>Rp125.000</p>
+    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
+    <h2>706 Diamonds</h2>
+    <p>Rp175.000</p>
+    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
+  </div>
+
+</section>
+
+<section id="checkout" class="form-section">
+  <h2>Formulir Checkout</h2>
+  <form>
+    <div class="form-group">
+      <label for="user-id">ID Pengguna MLBB</label>
+      <input type="text" id="user-id" placeholder="Masukkan ID MLBB Anda" required>
     </div>
-
-    <div class="product-card">
-      <img src="assets/diamond.png" alt="Diamond MLBB">
-      <h2>172 Diamonds</h2>
-      <p>Rp 50.000</p>
-      <button class="btn-secondary" onclick="selectProduct('172 Diamonds', 50000)">Beli</button>
+    <div class="form-group">
+      <label for="server-id">Server ID</label>
+      <input type="text" id="server-id" placeholder="Masukkan Server ID Anda" required>
     </div>
-
-    <div class="product-card">
-      <img src="assets/diamond.png" alt="Diamond MLBB">
-      <h2>344 Diamonds</h2>
-      <p>Rp 100.000</p>
-      <button class="btn-secondary" onclick="selectProduct('344 Diamonds', 100000)">Beli</button>
-    </div>
-  </section>
-
-  <!-- Checkout Section -->
-  <section id="checkout" class="checkout-form">
-    <h1>Checkout</h1>
-    <form id="formCheckout">
-      <input type="text" id="userId" placeholder="User ID" required>
-      <input type="text" id="serverId" placeholder="Server ID" required>
-      <input type="text" id="selectedProduct" placeholder="Produk Pilihan" readonly required>
-      <input type="text" id="selectedPrice" placeholder="Harga" readonly required>
-      <select id="paymentMethod" required>
-        <option value="">Pilih Metode Pembayaran</option>
-        <option value="gopay">GoPay</option>
-        <option value="dana">Dana</option>
-        <option value="ovo">OVO</option>
+    <div class="form-group">
+      <label for="diamond-choice">Pilih Jumlah Diamonds</label>
+      <select id="diamond-choice" required>
+        <option value="">-- Pilih Paket --</option>
+        <option value="86">86 Diamonds - Rp22.000</option>
+        <option value="172">172 Diamonds - Rp43.000</option>
+        <option value="344">344 Diamonds - Rp85.000</option>
+        <option value="514">514 Diamonds - Rp125.000</option>
+        <option value="706">706 Diamonds - Rp175.000</option>
       </select>
-      <button class="btn-primary" type="submit">Bayar Sekarang</button>
-    </form>
-  </section>
+    </div>
+    <div class="form-group">
+      <label for="payment-method">Metode Pembayaran</label>
+      <select id="payment-method" required>
+        <option value="">-- Pilih Pembayaran --</option>
+        <option value="gopay">GoPay</option>
+        <option value="dana">DANA</option>
+        <option value="ovo">OVO</option>
+        <option value="bank-transfer">Transfer Bank</option>
+      </select>
+    </div>
+    <button type="submit" class="submit-btn">Pesan Sekarang</button>
+  </form>
+</section>
 
-  <script src="script.js"></script>
+<section id="contact" class="hero">
+  <h2>Hubungi Kami</h2>
+  <p>WhatsApp: <b>+62-822-7674-2515</b></p>
+  <p>Email: <b>storerikkxz@gmail.com</b></p>
+</section>
+
+<footer>
+  <p>© 2025 GPTPROJECT STORE - MLBB Top Up Center. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
