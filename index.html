@@ -3,242 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RIKKXZ STORE - Top Up Diamond MLBB</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      color: #fff;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.7);
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
-    .hero {
-      text-align: center;
-      padding: 50px 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    .btn-primary {
-      background: #8e44ad;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 5px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .btn-primary:hover {
-      background: #9b59b6;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      padding: 40px 20px;
-    }
-    .product-card {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      transition: transform 0.3s, background 0.3s;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
-    }
-    .product-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.2);
-    }
-    .product-card img {
-      width: 80px;
-      margin-bottom: 10px;
-    }
-    .btn-secondary {
-      background: #00cec9;
-      padding: 8px 15px;
-      border: none;
-      margin-top: 10px;
-      border-radius: 5px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .btn-secondary:hover {
-      background: #81ecec;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.8);
-      font-size: 0.9rem;
-    }
-    .form-section {
-      background: rgba(255,255,255,0.1);
-      padding: 30px 20px;
-      margin: 40px 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    }
-    .form-section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-    }
-    .submit-btn {
-      background: #00cec9;
-      padding: 12px 25px;
-      border: none;
-      width: 100%;
-      border-radius: 5px;
-      color: white;
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 20px;
-    }
-    .submit-btn:hover {
-      background: #81ecec;
-    }
-  </style>
+  <title>StoreRikkxz - Topup MLBB Murah & Cepat</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-  <div class="logo">GPTPROJECT MLBB STORE</div>
+  <div class="banner">
+    <img src="banner.jpg" alt="StoreRikkxz Topup">
+    <h1>StoreRikkxz - TopUp Mobile Legends</h1>
+    <p>Topup diamond tercepat, termurah, terpercaya!</p>
+  </div>
   <nav>
-    <a href="#products">Produk</a>
-    <a href="#checkout">Checkout</a>
-    <a href="#contact">Kontak</a>
+    <ul>
+      <li><a href="#diamond">Diamond</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#promo">Promo</a></li>
+      <li><a href="#checkout">Checkout</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
   </nav>
 </header>
 
-<section class="hero">
-  <h1>Top Up Diamond Mobile Legends</h1>
-  <p>Termurah | Tercepat | Terpercaya</p>
-  <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView()">Lihat Produk</button>
+<main>
+
+<!-- Bagian Diamond -->
+<section id="diamond" class="section">
+  <h2>Diamond Mobile Legends</h2>
+  <div class="products-grid">
+    <!-- Diamond Products -->
+    <div class="product-card">
+      <img src="diamond86.png" alt="86 Diamonds">
+      <h3>86 Diamonds</h3>
+      <p>Rp 25.000</p>
+      <button class="buy-btn" data-id="86">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond172.png" alt="172 Diamonds">
+      <h3>172 Diamonds</h3>
+      <p>Rp 50.000</p>
+      <button class="buy-btn" data-id="172">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond257.png" alt="257 Diamonds">
+      <h3>257 Diamonds</h3>
+      <p>Rp 75.000</p>
+      <button class="buy-btn" data-id="257">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond344.png" alt="344 Diamonds">
+      <h3>344 Diamonds</h3>
+      <p>Rp 100.000</p>
+      <button class="buy-btn" data-id="344">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond429.png" alt="429 Diamonds">
+      <h3>429 Diamonds</h3>
+      <p>Rp 125.000</p>
+      <button class="buy-btn" data-id="429">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond514.png" alt="514 Diamonds">
+      <h3>514 Diamonds</h3>
+      <p>Rp 150.000</p>
+      <button class="buy-btn" data-id="514">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond706.png" alt="706 Diamonds">
+      <h3>706 Diamonds</h3>
+      <p>Rp 200.000</p>
+      <button class="buy-btn" data-id="706">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond878.png" alt="878 Diamonds">
+      <h3>878 Diamonds</h3>
+      <p>Rp 250.000</p>
+      <button class="buy-btn" data-id="878">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond963.png" alt="963 Diamonds">
+      <h3>963 Diamonds</h3>
+      <p>Rp 275.000</p>
+      <button class="buy-btn" data-id="963">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="diamond1412.png" alt="1412 Diamonds">
+      <h3>1412 Diamonds</h3>
+      <p>Rp 400.000</p>
+      <button class="buy-btn" data-id="1412">Beli</button>
+    </div>
+    <!-- Bisa tambah terus -->
+  </div>
 </section>
 
-<section id="products" class="product-grid">
-
-  <!-- PRODUK-PRODUK -->
-  <div class="product-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
-    <h2>86 Diamonds</h2>
-    <p>Rp22.000</p>
-    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
+<!-- Bagian Membership -->
+<section id="membership" class="section">
+  <h2>Paket Membership</h2>
+  <div class="products-grid">
+    <div class="product-card">
+      <img src="weeklypass.png" alt="Weekly Diamond Pass">
+      <h3>Weekly Diamond Pass</h3>
+      <p>Rp 30.000</p>
+      <button class="buy-btn" data-id="weekly">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="starlight.png" alt="Starlight Membership">
+      <h3>Starlight Membership</h3>
+      <p>Rp 150.000</p>
+      <button class="buy-btn" data-id="starlight">Beli</button>
+    </div>
+    <div class="product-card">
+      <img src="twilight.png" alt="Twilight Pass">
+      <h3>Twilight Pass</h3>
+      <p>Rp 250.000</p>
+      <button class="buy-btn" data-id="twilight">Beli</button>
+    </div>
   </div>
-  
-  <div class="product-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
-    <h2>172 Diamonds</h2>
-    <p>Rp43.000</p>
-    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
-  </div>
-
-  <div class="product-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
-    <h2>344 Diamonds</h2>
-    <p>Rp85.000</p>
-    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
-  </div>
-
-  <div class="product-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
-    <h2>514 Diamonds</h2>
-    <p>Rp125.000</p>
-    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
-  </div>
-
-  <div class="product-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732219.png" alt="MLBB">
-    <h2>706 Diamonds</h2>
-    <p>Rp175.000</p>
-    <button class="btn-secondary" onclick="document.getElementById('checkout').scrollIntoView()">Beli Sekarang</button>
-  </div>
-
 </section>
 
-<section id="checkout" class="form-section">
-  <h2>Formulir Checkout</h2>
-  <form>
-    <div class="form-group">
-      <label for="user-id">ID Pengguna MLBB</label>
-      <input type="text" id="user-id" placeholder="Masukkan ID MLBB Anda" required>
+<!-- Bagian Promo -->
+<section id="promo" class="section">
+  <h2>Promo Spesial</h2>
+  <div class="products-grid">
+    <div class="product-card promo">
+      <img src="promo1.png" alt="Promo 500 Diamonds + Bonus">
+      <h3>500 Diamonds + Bonus</h3>
+      <p>Rp 130.000</p>
+      <button class="buy-btn" data-id="promo500">Beli</button>
     </div>
-    <div class="form-group">
-      <label for="server-id">Server ID</label>
-      <input type="text" id="server-id" placeholder="Masukkan Server ID Anda" required>
+    <div class="product-card promo">
+      <img src="promo2.png" alt="Promo 1000 Diamonds + Bonus">
+      <h3>1000 Diamonds + Bonus</h3>
+      <p>Rp 270.000</p>
+      <button class="buy-btn" data-id="promo1000">Beli</button>
     </div>
-    <div class="form-group">
-      <label for="diamond-choice">Pilih Jumlah Diamonds</label>
-      <select id="diamond-choice" required>
-        <option value="">-- Pilih Paket --</option>
-        <option value="86">86 Diamonds - Rp22.000</option>
-        <option value="172">172 Diamonds - Rp43.000</option>
-        <option value="344">344 Diamonds - Rp85.000</option>
-        <option value="514">514 Diamonds - Rp125.000</option>
-        <option value="706">706 Diamonds - Rp175.000</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="payment-method">Metode Pembayaran</label>
-      <select id="payment-method" required>
-        <option value="">-- Pilih Pembayaran --</option>
-        <option value="gopay">GoPay</option>
-        <option value="dana">DANA</option>
-        <option value="ovo">OVO</option>
-        <option value="bank-transfer">Transfer Bank</option>
-      </select>
-    </div>
-    <button type="submit" class="submit-btn">Pesan Sekarang</button>
+  </div>
+</section>
+
+<!-- Form Checkout -->
+<section id="checkout" class="section checkout-section">
+  <h2>Form Pembelian</h2>
+  <form id="checkoutForm">
+    <label for="userID">ID Pemain:</label>
+    <input type="text" id="userID" name="userID" placeholder="Masukkan ID MLBB" required>
+
+    <label for="serverID">Server:</label>
+    <input type="text" id="serverID" name="serverID" placeholder="Masukkan Server ID" required>
+
+    <label for="diamondPack">Pilih Produk:</label>
+    <select id="diamondPack" name="diamondPack" required>
+      <option value="">-- Pilih Produk --</option>
+      <option value="86">86 Diamonds - Rp25.000</option>
+      <option value="172">172 Diamonds - Rp50.000</option>
+      <option value="starlight">Starlight Membership - Rp150.000</option>
+      <option value="weekly">Weekly Diamond Pass - Rp30.000</option>
+    </select>
+
+    <label for="paymentMethod">Metode Pembayaran:</label>
+    <select id="paymentMethod" name="paymentMethod" required>
+      <option value="">-- Pilih Metode Pembayaran --</option>
+      <option value="dana">Dana</option>
+      <option value="ovo">OVO</option>
+      <option value="gopay">Gopay</option>
+      <option value="bank">Bank Transfer</option>
+    </select>
+
+    <label for="email">Email Aktif:</label>
+    <input type="email" id="email" name="email" placeholder="Masukkan Email" required>
+
+    <button type="submit">Checkout</button>
   </form>
 </section>
 
-<section id="contact" class="hero">
+<!-- Kontak -->
+<section id="contact" class="section contact-section">
   <h2>Hubungi Kami</h2>
-  <p>WhatsApp: <b>+62-822-7674-2515</b></p>
-  <p>Email: <b>storerikkxz@gmail.com</b></p>
+  <p>Whatsapp: <a href="https://wa.me/6282276742515" target="_blank">+62-822-7674-2515</a></p>
+  <p>Email: <a href="mailto:storerikkxz@gmail.com">storerikkxz@gmail.com</a></p>
 </section>
 
+</main>
+
 <footer>
-  <p>© 2025 RIKKXZ STORE STORE - MLBB Top Up Center. All rights reserved.</p>
+  <p>&copy; 2025 StoreRikkxz. All rights reserved.</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
