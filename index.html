@@ -1,193 +1,43 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StoreRikkxz - Topup MLBB Murah & Cepat</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIKKXZ STORE - Top Up Mobile Legends</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-  <div class="banner">
-    <img src="banner.jpg" alt="StoreRikkxz Topup">
-    <h1>StoreRikkxz - TopUp Mobile Legends</h1>
-    <p>Topup diamond tercepat, termurah, terpercaya!</p>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="#diamond">Diamond</a></li>
-      <li><a href="#membership">Membership</a></li>
-      <li><a href="#promo">Promo</a></li>
-      <li><a href="#checkout">Checkout</a></li>
-      <li><a href="#contact">Kontak</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-
-<!-- Bagian Diamond -->
-<section id="diamond" class="section">
-  <h2>Diamond Mobile Legends</h2>
-  <div class="products-grid">
-    <!-- Diamond Products -->
-    <div class="product-card">
-      <img src="diamond86.png" alt="86 Diamonds">
-      <h3>86 Diamonds</h3>
-      <p>Rp 25.000</p>
-      <button class="buy-btn" data-id="86">Beli</button>
+    <div id="loader">
+        <h1>Loading...</h1>
     </div>
-    <div class="product-card">
-      <img src="diamond172.png" alt="172 Diamonds">
-      <h3>172 Diamonds</h3>
-      <p>Rp 50.000</p>
-      <button class="buy-btn" data-id="172">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="diamond257.png" alt="257 Diamonds">
-      <h3>257 Diamonds</h3>
-      <p>Rp 75.000</p>
-      <button class="buy-btn" data-id="257">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="diamond344.png" alt="344 Diamonds">
-      <h3>344 Diamonds</h3>
-      <p>Rp 100.000</p>
-      <button class="buy-btn" data-id="344">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="diamond429.png" alt="429 Diamonds">
-      <h3>429 Diamonds</h3>
-      <p>Rp 125.000</p>
-      <button class="buy-btn" data-id="429">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="diamond514.png" alt="514 Diamonds">
-      <h3>514 Diamonds</h3>
-      <p>Rp 150.000</p>
-      <button class="buy-btn" data-id="514">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="diamond706.png" alt="706 Diamonds">
-      <h3>706 Diamonds</h3>
-      <p>Rp 200.000</p>
-      <button class="buy-btn" data-id="706">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="diamond878.png" alt="878 Diamonds">
-      <h3>878 Diamonds</h3>
-      <p>Rp 250.000</p>
-      <button class="buy-btn" data-id="878">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="diamond963.png" alt="963 Diamonds">
-      <h3>963 Diamonds</h3>
-      <p>Rp 275.000</p>
-      <button class="buy-btn" data-id="963">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="diamond1412.png" alt="1412 Diamonds">
-      <h3>1412 Diamonds</h3>
-      <p>Rp 400.000</p>
-      <button class="buy-btn" data-id="1412">Beli</button>
-    </div>
-    <!-- Bisa tambah terus -->
-  </div>
-</section>
 
-<!-- Bagian Membership -->
-<section id="membership" class="section">
-  <h2>Paket Membership</h2>
-  <div class="products-grid">
-    <div class="product-card">
-      <img src="weeklypass.png" alt="Weekly Diamond Pass">
-      <h3>Weekly Diamond Pass</h3>
-      <p>Rp 30.000</p>
-      <button class="buy-btn" data-id="weekly">Beli</button>
+    <div class="main-content" style="display:none;">
+        <header class="header">
+            <h1>RIKKXZ STORE</h1>
+            <p>Top Up Diamond Mobile Legends Termurah & Terpercaya!</p>
+        </header>
+
+        <div class="carousel">
+            <div class="slides">
+                <div class="slide">Promo 1: Cashback 10%</div>
+                <div class="slide">Promo 2: Diskon 20% Diamond MLBB</div>
+                <div class="slide">Promo 3: Cashback Dana OVO 5%</div>
+            </div>
+        </div>
+
+        <input type="text" id="searchBar" placeholder="Cari produk...">
+        
+        <select id="filterPrice">
+            <option value="">Urutkan Harga</option>
+            <option value="asc">Murah ke Mahal</option>
+            <option value="desc">Mahal ke Murah</option>
+        </select>
+
+        <section class="products" id="productList">
+            <!-- PRODUK 200++ AUTO DIISI -->
+        </section>
     </div>
-    <div class="product-card">
-      <img src="starlight.png" alt="Starlight Membership">
-      <h3>Starlight Membership</h3>
-      <p>Rp 150.000</p>
-      <button class="buy-btn" data-id="starlight">Beli</button>
-    </div>
-    <div class="product-card">
-      <img src="twilight.png" alt="Twilight Pass">
-      <h3>Twilight Pass</h3>
-      <p>Rp 250.000</p>
-      <button class="buy-btn" data-id="twilight">Beli</button>
-    </div>
-  </div>
-</section>
 
-<!-- Bagian Promo -->
-<section id="promo" class="section">
-  <h2>Promo Spesial</h2>
-  <div class="products-grid">
-    <div class="product-card promo">
-      <img src="promo1.png" alt="Promo 500 Diamonds + Bonus">
-      <h3>500 Diamonds + Bonus</h3>
-      <p>Rp 130.000</p>
-      <button class="buy-btn" data-id="promo500">Beli</button>
-    </div>
-    <div class="product-card promo">
-      <img src="promo2.png" alt="Promo 1000 Diamonds + Bonus">
-      <h3>1000 Diamonds + Bonus</h3>
-      <p>Rp 270.000</p>
-      <button class="buy-btn" data-id="promo1000">Beli</button>
-    </div>
-  </div>
-</section>
-
-<!-- Form Checkout -->
-<section id="checkout" class="section checkout-section">
-  <h2>Form Pembelian</h2>
-  <form id="checkoutForm">
-    <label for="userID">ID Pemain:</label>
-    <input type="text" id="userID" name="userID" placeholder="Masukkan ID MLBB" required>
-
-    <label for="serverID">Server:</label>
-    <input type="text" id="serverID" name="serverID" placeholder="Masukkan Server ID" required>
-
-    <label for="diamondPack">Pilih Produk:</label>
-    <select id="diamondPack" name="diamondPack" required>
-      <option value="">-- Pilih Produk --</option>
-      <option value="86">86 Diamonds - Rp25.000</option>
-      <option value="172">172 Diamonds - Rp50.000</option>
-      <option value="starlight">Starlight Membership - Rp150.000</option>
-      <option value="weekly">Weekly Diamond Pass - Rp30.000</option>
-    </select>
-
-    <label for="paymentMethod">Metode Pembayaran:</label>
-    <select id="paymentMethod" name="paymentMethod" required>
-      <option value="">-- Pilih Metode Pembayaran --</option>
-      <option value="dana">Dana</option>
-      <option value="ovo">OVO</option>
-      <option value="gopay">Gopay</option>
-      <option value="bank">Bank Transfer</option>
-    </select>
-
-    <label for="email">Email Aktif:</label>
-    <input type="email" id="email" name="email" placeholder="Masukkan Email" required>
-
-    <button type="submit">Checkout</button>
-  </form>
-</section>
-
-<!-- Kontak -->
-<section id="contact" class="section contact-section">
-  <h2>Hubungi Kami</h2>
-  <p>Whatsapp: <a href="https://wa.me/6282276742515" target="_blank">+62-822-7674-2515</a></p>
-  <p>Email: <a href="mailto:storerikkxz@gmail.com">storerikkxz@gmail.com</a></p>
-</section>
-
-</main>
-
-<footer>
-  <p>&copy; 2025 StoreRikkxz. All rights reserved.</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
