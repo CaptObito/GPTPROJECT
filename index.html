@@ -1,43 +1,115 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIKKXZ STORE - Top Up Mobile Legends</title>
-    <link rel="stylesheet" href="style.css">
+    <title>RIKKXZ STORE - Topup MLBB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #0d001f;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(90deg, #5f00ba, #200040);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 0 15px #6c00ff;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+        .product-card {
+            background: #1a0033;
+            border: 1px solid #5f00ba;
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 0 10px #420076;
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 80px;
+            height: 80px;
+        }
+        .product-card h3 {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+        .product-card p {
+            margin: 0.5rem 0;
+        }
+        .product-card button {
+            background: #5f00ba;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background: #7f00ff;
+        }
+    </style>
 </head>
 <body>
-    <div id="loader">
-        <h1>Loading...</h1>
-    </div>
+    <header>
+        <h1>RIKKXZ STORE - TOPUP MLBB</h1>
+    </header><section class="products" id="product-list">
+    <!-- Etalase produk akan dimuat di sini oleh JS -->
+</section>
 
-    <div class="main-content" style="display:none;">
-        <header class="header">
-            <h1>RIKKXZ STORE</h1>
-            <p>Top Up Diamond Mobile Legends Termurah & Terpercaya!</p>
-        </header>
+<script>
+    const productList = document.getElementById('product-list');
 
-        <div class="carousel">
-            <div class="slides">
-                <div class="slide">Promo 1: Cashback 10%</div>
-                <div class="slide">Promo 2: Diskon 20% Diamond MLBB</div>
-                <div class="slide">Promo 3: Cashback Dana OVO 5%</div>
-            </div>
-        </div>
+    const products = [
+        { name: '12 Diamonds', price: 3500 },
+        { name: '28 Diamonds', price: 8000 },
+        { name: '36 Diamonds', price: 10000 },
+        { name: '56 Diamonds', price: 16000 },
+        { name: '85 Diamonds', price: 23000 },
+        { name: '169 Diamonds', price: 46000 },
+        { name: '220 Diamonds', price: 60000 },
+        { name: '282 Diamonds', price: 80000 },
+        { name: '366 Diamonds', price: 100000 },
+        { name: '568 Diamonds', price: 150000 },
+        { name: '875 Diamonds', price: 230000 },
+        { name: '2010 Diamonds', price: 500000 },
+        { name: '4804 Diamonds', price: 1200000 }
+    ];
 
-        <input type="text" id="searchBar" placeholder="Cari produk...">
-        
-        <select id="filterPrice">
-            <option value="">Urutkan Harga</option>
-            <option value="asc">Murah ke Mahal</option>
-            <option value="desc">Mahal ke Murah</option>
-        </select>
+    for (let i = 0; i < 16; i++) {
+        products.forEach(product => {
+            const div = document.createElement('div');
+            div.className = 'product-card';
+            div.innerHTML = `
+                <img src="https://via.placeholder.com/80" alt="${product.name}" />
+                <h3>${product.name}</h3>
+                <p>Harga: Rp ${product.price.toLocaleString()}</p>
+                <button onclick="orderWhatsApp('${product.name}', '${product.price}')">Beli Sekarang</button>
+            `;
+            productList.appendChild(div);
+        });
+    }
 
-        <section class="products" id="productList">
-            <!-- PRODUK 200++ AUTO DIISI -->
-        </section>
-    </div>
+    function orderWhatsApp(productName, price) {
+        const phone = '6282276742515';
+        const msg = `Halo kak, saya mau beli *${productName}* seharga *Rp ${price}*.`;
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`);
+    }
+</script>
 
-    <script src="script.js"></script>
 </body>
 </html>
