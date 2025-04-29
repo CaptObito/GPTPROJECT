@@ -104,6 +104,11 @@
         });
     }
 
+<input type="text" id="search-input" placeholder="Cari produk..." />
+<div id="cart-items"></div>
+<div id="total-price"></div>
+<button onclick="checkout()">Checkout via WhatsApp</button>
+
     function orderWhatsApp(productName, price) {
         const phone = '6282276742515';
         const msg = `Halo kak, saya mau beli *${productName}* seharga *Rp ${price}*.`;
