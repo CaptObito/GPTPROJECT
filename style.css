@@ -234,3 +234,118 @@ footer p {
     margin-right: 10px;
   }
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #5d00ff, #000000);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#searchBar, #filterPrice {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #1b1b1b;
+    border: 2px solid #5d00ff;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 0 0 15px #5d00ff66;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px #5d00ffcc;
+}
+
+button {
+    background: #5d00ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    margin-top: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+button:hover {
+    background: #7c00ff;
+    box-shadow: 0 0 15px #7c00ff99;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    background: #2a2a2a;
+    box-shadow: 0 0 20px #5d00ff88;
+}
+
+.slides {
+    display: flex;
+    width: 300%;
+    animation: slide 9s infinite;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 20px;
+    padding: 30px;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+#loader {
+    position: fixed;
+    top:0;left:0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: #5d00ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
