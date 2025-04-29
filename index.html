@@ -1,116 +1,100 @@
 <!DOCTYPE html><html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIKKXZ STORE - Topup MLBB</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: #0d001f;
-            color: #ffffff;
-            font-family: 'Orbitron', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: linear-gradient(90deg, #5f00ba, #200040);
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 0 15px #6c00ff;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1rem;
-            padding: 2rem;
-        }
-        .product-card {
-            background: #1a0033;
-            border: 1px solid #5f00ba;
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 0 10px #420076;
-            transition: transform 0.2s;
-        }
-        .product-card:hover {
-            transform: scale(1.05);
-        }
-        .product-card img {
-            width: 80px;
-            height: 80px;
-        }
-        .product-card h3 {
-            font-size: 1rem;
-            margin: 0.5rem 0;
-        }
-        .product-card p {
-            margin: 0.5rem 0;
-        }
-        .product-card button {
-            background: #5f00ba;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-        }
-        .product-card button:hover {
-            background: #7f00ff;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RIKKXZ STORE - TOP UP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+    }body {
+  background: #0f001e;
+  color: white;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #b14fff;
+  text-shadow: 0 0 10px #b14fff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: linear-gradient(to bottom, #1c0030, #320060);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px #6f00ff;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.product-card h2 {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.product-card p {
+  margin-bottom: 10px;
+}
+
+.product-card button {
+  background: #b14fff;
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #ff00c8;
+}
+
+  </style>
 </head>
 <body>
-    <header>
-        <h1>RIKKXZ STORE - TOPUP MLBB</h1>
-    </header><section class="products" id="product-list">
-    <!-- Etalase produk akan dimuat di sini oleh JS -->
-</section>
+  <header>
+    <h1>RIKKXZ STORE - TOPUP DIAMOND MLBB</h1>
+  </header>  <section class="product-grid">
+    <!-- Contoh Produk -->
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3502/3502458.png" alt="Diamond" />
+      <h2>12 Diamond</h2>
+      <p>Harga: Rp3.500</p>
+      <button>Beli Sekarang</button>
+    </div><div class="product-card">
+  <img src="https://cdn-icons-png.flaticon.com/512/3502/3502458.png" alt="Diamond" />
+  <h2>28 Diamond</h2>
+  <p>Harga: Rp8.000</p>
+  <button>Beli Sekarang</button>
+</div>
 
-<script>
-    const productList = document.getElementById('product-list');
+<!-- Tambahkan 100+ produk lainnya di sini dengan pola yang sama -->
 
-    const products = [
-        { name: '12 Diamonds', price: 3500 },
-        { name: '28 Diamonds', price: 8000 },
-        { name: '36 Diamonds', price: 10000 },
-        { name: '56 Diamonds', price: 16000 },
-        { name: '85 Diamonds', price: 23000 },
-        { name: '169 Diamonds', price: 46000 },
-        { name: '220 Diamonds', price: 60000 },
-        { name: '282 Diamonds', price: 80000 },
-        { name: '366 Diamonds', price: 100000 },
-        { name: '568 Diamonds', price: 150000 },
-        { name: '875 Diamonds', price: 230000 },
-        { name: '2010 Diamonds', price: 500000 },
-        { name: '4804 Diamonds', price: 1200000 }
-    ];
-
-    for (let i = 0; i < 16; i++) {
-        products.forEach(product => {
-            const div = document.createElement('div');
-            div.className = 'product-card';
-            div.innerHTML = `
-                <img src="https://via.placeholder.com/80" alt="${product.name}" />
-                <h3>${product.name}</h3>
-                <p>Harga: Rp ${product.price.toLocaleString()}</p>
-                <button onclick="orderWhatsApp('${product.name}', '${product.price}')">Beli Sekarang</button>
-            `;
-            productList.appendChild(div);
-        });
-    }
-
-
-    function orderWhatsApp(productName, price) {
-        const phone = '6282276742515';
-        const msg = `Halo kak, saya mau beli *${productName}* seharga *Rp ${price}*.`;
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`);
-    }
-</script>
-
+  </section>
 </body>
 </html>
