@@ -133,3 +133,88 @@ document.addEventListener('DOMContentLoaded', function () {
   updateCart();
 
 });
+
+// Loading
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';
+        document.querySelector('.main-content').style.display = 'block';
+    }, 2000);
+};
+
+// Produk Data
+const products = [
+    { name: "5 Diamonds", price: 1500 },
+    { name: "12 Diamonds", price: 3000 },
+    { name: "19 Diamonds", price: 4500 },
+    { name: "28 Diamonds", price: 7000 },
+    { name: "36 Diamonds", price: 9000 },
+    { name: "44 Diamonds", price: 11000 },
+    { name: "59 Diamonds", price: 15000 },
+    { name: "74 Diamonds", price: 18000 },
+    { name: "85 Diamonds", price: 21000 },
+    { name: "170 Diamonds", price: 40000 },
+    { name: "240 Diamonds", price: 58000 },
+    { name: "300 Diamonds", price: 75000 },
+    { name: "370 Diamonds", price: 92000 },
+    { name: "400 Diamonds", price: 100000 },
+    { name: "500 Diamonds", price: 125000 },
+    { name: "600 Diamonds", price: 150000 },
+    // DUPLIKASI DATA 10X SUPAYA 200 PRODUK
+];
+
+while (products.length < 200) {
+    products.push(...products.slice(0, 20));
+}
+
+// Load Produk
+const productList = document.getElementById('productList');
+
+products.forEach(prod => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+        <img src="https://via.placeholder.com/150" alt="${prod.name}">
+        <h3>${prod.name}</h3>
+        <p>Harga: Rp ${prod.price}</p>
+        <button onclick="orderWhatsApp('${prod.name}', '${prod.price}')">Beli Sekarang</button>
+    `;
+    productList.appendChild(card);
+});
+
+// Search
+document.getElementById('searchBar').addEventListener('input', function(e) {
+    const keyword = e.target.value.toLowerCase();
+    Array.from(productList.children).forEach(function(product) {
+        const title = product.querySelector('h3').textContent.toLowerCase();
+        product.style.display = title.includes(keyword) ? 'block' : 'none';
+    });
+});
+
+// Filter Harga
+document.getElementById('filterPrice').addEventListener('change', function(e) {
+    const order = e.target.value;
+    let sorted = [...products];
+    if (order === 'asc') sorted.sort((a, b) => a.price - b.price);
+    else if (order === 'desc') sorted.sort((a, b) => b.price - a.price);
+
+    productList.innerHTML = '';
+    sorted.forEach(prod => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <img src="https://via.placeholder.com/150" alt="${prod.name}">
+            <h3>${prod.name}</h3>
+            <p>Harga: Rp ${prod.price}</p>
+            <button onclick="orderWhatsApp('${prod.name}', '${prod.price}')">Beli Sekarang</button>
+        `;
+        productList.appendChild(card);
+    });
+});
+
+// Order WhatsApp
+function orderWhatsApp(productName, price) {
+    const phoneNumber = "6282276742515";
+    const message = `Halo kak, saya mau beli *${productName}* seharga *Rp ${price}*.`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+}
