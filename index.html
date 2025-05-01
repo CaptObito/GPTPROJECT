@@ -1,100 +1,93 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RIKKXZ STORE - TOP UP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <title>RIKKXZ STORE Coding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    body {
       font-family: 'Orbitron', sans-serif;
-    }body {
-  background: #0f001e;
-  color: white;
-  padding: 20px;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-header h1 {
-  font-size: 2rem;
-  color: #b14fff;
-  text-shadow: 0 0 10px #b14fff;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background: linear-gradient(to bottom, #1c0030, #320060);
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 0 10px #6f00ff;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
-}
-
-.product-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
-}
-
-.product-card h2 {
-  font-size: 1rem;
-  margin: 5px 0;
-}
-
-.product-card p {
-  margin-bottom: 10px;
-}
-
-.product-card button {
-  background: #b14fff;
-  border: none;
-  padding: 5px 10px;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.product-card button:hover {
-  background: #ff00c8;
-}
-
+      background: linear-gradient(to bottom, #000000, #1a001a);
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    .neon-text {
+      text-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 20px #0ff;
+    }
+    .rgb-border {
+      border: 2px solid;
+      border-image: linear-gradient(45deg, red, lime, blue) 1;
+    }
+    .bg-rgb {
+      background: linear-gradient(135deg, #8000ff, #00f2ff);
+    }
+    .section {
+      padding: 100px 20px;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
   </style>
 </head>
-<body>
-  <header>
-    <h1>RIKKXZ STORE - TOPUP DIAMOND MLBB</h1>
-  </header>  <section class="product-grid">
-    <!-- Contoh Produk -->
-    <div class="product-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/3502/3502458.png" alt="Diamond" />
-      <h2>12 Diamond</h2>
-      <p>Harga: Rp3.500</p>
-      <button>Beli Sekarang</button>
-    </div><div class="product-card">
-  <img src="https://cdn-icons-png.flaticon.com/512/3502/3502458.png" alt="Diamond" />
-  <h2>28 Diamond</h2>
-  <p>Harga: Rp8.000</p>
-  <button>Beli Sekarang</button>
-</div>
-
-<!-- Tambahkan 100+ produk lainnya di sini dengan pola yang sama -->
-
-  </section>
-</body>
+<body>  <!-- Navbar -->  <nav class="fixed top-0 w-full bg-black bg-opacity-70 z-50 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold neon-text">RIKKXZ STORE</h1>
+      <div class="space-x-4">
+        <a href="#hero" class="hover:text-purple-400">Home</a>
+        <a href="#about" class="hover:text-purple-400">About</a>
+        <a href="#services" class="hover:text-purple-400">Services</a>
+        <a href="#projects" class="hover:text-purple-400">Projects</a>
+        <a href="#contact" class="hover:text-purple-400">Contact</a>
+      </div>
+    </div>
+  </nav>  <!-- Hero Section -->  <section id="hero" class="section text-center animate__animated animate__fadeIn">
+    <h2 class="text-5xl font-bold neon-text mb-4">Welcome to RIKKXZ STORE Coding</h2>
+    <p class="text-xl">Coding | Cybersecurity | Digital Storefront</p>
+    <a href="#services" class="mt-6 inline-block bg-rgb text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition">Explore Now</a>
+  </section>  <!-- About Section -->  <section id="about" class="section bg-gray-900 text-center animate__animated animate__fadeInUp">
+    <h3 class="text-3xl font-bold mb-6">About Us</h3>
+    <p class="max-w-2xl mx-auto">RIKKXZ STORE is your all-in-one solution for advanced coding projects, cybersecurity systems, and creative tech. We craft digital experiences with precision and style.</p>
+  </section>  <!-- Services Section -->  <section id="services" class="section text-center animate__animated animate__fadeInLeft">
+    <h3 class="text-3xl font-bold mb-10">Our Services</h3>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="p-6 bg-gray-800 rounded-lg rgb-border card">
+        <h4 class="text-xl font-bold mb-2">Custom Coding</h4>
+        <p>High-performance web & app development with modern frameworks.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-lg rgb-border card">
+        <h4 class="text-xl font-bold mb-2">Cybersecurity</h4>
+        <p>Advanced protection & anti-DDoS for your server or website.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-lg rgb-border card">
+        <h4 class="text-xl font-bold mb-2">Design + Branding</h4>
+        <p>Futuristic visuals and UI/UX with creative tech identity.</p>
+      </div>
+    </div>
+  </section>  <!-- Projects Section -->  <section id="projects" class="section bg-gray-900 text-center animate__animated animate__fadeInRight">
+    <h3 class="text-3xl font-bold mb-10">Our Projects</h3>
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div class="p-4 bg-gray-800 rounded-lg card">
+        <h5 class="text-lg font-semibold">Anti-DDoS Web Firewall</h5>
+        <p>Protects Growtopia private servers with real-time mitigation.</p>
+      </div>
+      <div class="p-4 bg-gray-800 rounded-lg card">
+        <h5 class="text-lg font-semibold">AI Chatbot Integration</h5>
+        <p>AI-based helper connected to ChatGPT with full API support.</p>
+      </div>
+    </div>
+  </section>  <!-- Contact Section -->  <section id="contact" class="section text-center animate__animated animate__fadeInUp">
+    <h3 class="text-3xl font-bold mb-6">Contact Us</h3>
+    <p class="mb-4">Let's work on something amazing together.</p>
+    <form class="max-w-xl mx-auto space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-gray-700 text-white">
+      <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-700 text-white">
+      <textarea rows="4" placeholder="Your Message" class="w-full p-3 rounded bg-gray-700 text-white"></textarea>
+      <button type="submit" class="bg-rgb text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition">Send</button>
+    </form>
+  </section>  <!-- Footer -->  <footer class="bg-black py-6 text-center text-sm">
+    <p>&copy; 2025 RIKKXZ STORE Coding. All rights reserved.</p>
+  </footer></body>
 </html>
