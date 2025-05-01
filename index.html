@@ -1,93 +1,117 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RIKKXZ STORE Coding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIKKXZ STORE - Top Up MLBB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to bottom, #000000, #1a001a);
-      color: #fff;
-      scroll-behavior: smooth;
-    }
-    .neon-text {
-      text-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 20px #0ff;
-    }
-    .rgb-border {
-      border: 2px solid;
-      border-image: linear-gradient(45deg, red, lime, blue) 1;
-    }
-    .bg-rgb {
-      background: linear-gradient(135deg, #8000ff, #00f2ff);
-    }
-    .section {
-      padding: 100px 20px;
-    }
-    .card:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease-in-out;
-    }
+    :root {
+      --primary-color: #7f00ff;
+      --secondary-color: #000000;
+      --text-color: #ffffff;
+      --card-bg: #1b1b1b;
+      --hover-glow: 0 0 10px #7f00ff, 0 0 20px #7f00ff;
+    }* {
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to right, #0f0f0f, #1b1b1b);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+header {
+  padding: 1rem 2rem;
+  background: var(--primary-color);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: var(--hover-glow);
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 2rem;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-glow);
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.product-name {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+.price {
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+footer {
+  background: #121212;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.contact {
+  padding: 2rem;
+  text-align: center;
+}
+
+.contact a {
+  color: #00ffff;
+  display: block;
+  margin: 0.5rem 0;
+  text-decoration: none;
+}
+
   </style>
 </head>
-<body>  <!-- Navbar -->  <nav class="fixed top-0 w-full bg-black bg-opacity-70 z-50 p-4 shadow-lg">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold neon-text">RIKKXZ STORE</h1>
-      <div class="space-x-4">
-        <a href="#hero" class="hover:text-purple-400">Home</a>
-        <a href="#about" class="hover:text-purple-400">About</a>
-        <a href="#services" class="hover:text-purple-400">Services</a>
-        <a href="#projects" class="hover:text-purple-400">Projects</a>
-        <a href="#contact" class="hover:text-purple-400">Contact</a>
-      </div>
+<body>
+  <header>RIKKXZ STORE - Diamond MLBB</header>  <section class="products">
+    <!-- Contoh Produk -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="86 Diamonds">
+      <div class="product-name">86 Diamonds</div>
+      <div class="price">Rp20.000</div>
     </div>
-  </nav>  <!-- Hero Section -->  <section id="hero" class="section text-center animate__animated animate__fadeIn">
-    <h2 class="text-5xl font-bold neon-text mb-4">Welcome to RIKKXZ STORE Coding</h2>
-    <p class="text-xl">Coding | Cybersecurity | Digital Storefront</p>
-    <a href="#services" class="mt-6 inline-block bg-rgb text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition">Explore Now</a>
-  </section>  <!-- About Section -->  <section id="about" class="section bg-gray-900 text-center animate__animated animate__fadeInUp">
-    <h3 class="text-3xl font-bold mb-6">About Us</h3>
-    <p class="max-w-2xl mx-auto">RIKKXZ STORE is your all-in-one solution for advanced coding projects, cybersecurity systems, and creative tech. We craft digital experiences with precision and style.</p>
-  </section>  <!-- Services Section -->  <section id="services" class="section text-center animate__animated animate__fadeInLeft">
-    <h3 class="text-3xl font-bold mb-10">Our Services</h3>
-    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <div class="p-6 bg-gray-800 rounded-lg rgb-border card">
-        <h4 class="text-xl font-bold mb-2">Custom Coding</h4>
-        <p>High-performance web & app development with modern frameworks.</p>
-      </div>
-      <div class="p-6 bg-gray-800 rounded-lg rgb-border card">
-        <h4 class="text-xl font-bold mb-2">Cybersecurity</h4>
-        <p>Advanced protection & anti-DDoS for your server or website.</p>
-      </div>
-      <div class="p-6 bg-gray-800 rounded-lg rgb-border card">
-        <h4 class="text-xl font-bold mb-2">Design + Branding</h4>
-        <p>Futuristic visuals and UI/UX with creative tech identity.</p>
-      </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="172 Diamonds">
+      <div class="product-name">172 Diamonds</div>
+      <div class="price">Rp38.000</div>
     </div>
-  </section>  <!-- Projects Section -->  <section id="projects" class="section bg-gray-900 text-center animate__animated animate__fadeInRight">
-    <h3 class="text-3xl font-bold mb-10">Our Projects</h3>
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      <div class="p-4 bg-gray-800 rounded-lg card">
-        <h5 class="text-lg font-semibold">Anti-DDoS Web Firewall</h5>
-        <p>Protects Growtopia private servers with real-time mitigation.</p>
-      </div>
-      <div class="p-4 bg-gray-800 rounded-lg card">
-        <h5 class="text-lg font-semibold">AI Chatbot Integration</h5>
-        <p>AI-based helper connected to ChatGPT with full API support.</p>
-      </div>
-    </div>
-  </section>  <!-- Contact Section -->  <section id="contact" class="section text-center animate__animated animate__fadeInUp">
-    <h3 class="text-3xl font-bold mb-6">Contact Us</h3>
-    <p class="mb-4">Let's work on something amazing together.</p>
-    <form class="max-w-xl mx-auto space-y-4">
-      <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-gray-700 text-white">
-      <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-700 text-white">
-      <textarea rows="4" placeholder="Your Message" class="w-full p-3 rounded bg-gray-700 text-white"></textarea>
-      <button type="submit" class="bg-rgb text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition">Send</button>
-    </form>
-  </section>  <!-- Footer -->  <footer class="bg-black py-6 text-center text-sm">
-    <p>&copy; 2025 RIKKXZ STORE Coding. All rights reserved.</p>
-  </footer></body>
+    <!-- Tambahan produk bisa digenerate otomatis lewat JS nanti -->
+  </section>  <section class="contact">
+    <h2>Kontak Kami</h2>
+    <a href="https://wa.me/6282276742515">WhatsApp: +62 822-7674-2515</a>
+    <a href="mailto:storerikkxz@gmail.com">Email: storerikkxz@gmail.com</a>
+  </section>  <footer>
+    &copy; 2025 RIKKXZ STORE. All Rights Reserved.
+  </footer>
+</body>
 </html>
